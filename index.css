@@ -12,7 +12,6 @@
   text-decoration: none;
   outline: none;
   border: none;
-  /*text-transform: capitalize;*/
   transition: all 0.2s linear;
 }
 
@@ -182,6 +181,8 @@ header .navbar ul li a:hover {
   padding: 1rem 0;
 }
 
+/* about start */
+
 .about .row {
   display: flex;
   align-items: center;
@@ -234,6 +235,10 @@ header .navbar ul li a:hover {
   color: #fff;
 }
 
+/* about end */
+
+/* tools start */
+
 .tools .box-container .box h3 {
   display: flex;
   font-size: 2rem;
@@ -273,6 +278,9 @@ header .navbar ul li a:hover {
   object-fit: cover;
   flex-wrap: wrap;
 }
+/* tools end */
+
+/* Project starts */
 
 .projects .box-container {
   align-items: center;
@@ -281,6 +289,31 @@ header .navbar ul li a:hover {
   padding: 2rem 0;
   padding-left: 5rem;
   padding-right: 5rem;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 40%;
+  padding: 0 10px;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .collapsible {
@@ -340,30 +373,6 @@ header .navbar ul li a:hover {
   text: center;
 }
 
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 30%;
-  padding: 0 10px;
-  padding-left: 10px;
-  padding-top: 20px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {
-  margin: 0 -5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Style the counter cards */
 .card {
@@ -476,6 +485,11 @@ header .navbar ul li a:hover {
   .modal-content-image 
     width: 100%;
 }
+
+/* project/work end */
+
+
+/* contact start */
   
 .contact .row {
   display: flex;
@@ -554,6 +568,10 @@ textarea {
   border-radius: 2rem;
   border: 2px solid white;
 }
+
+/* contact end */
+
+
 iframe {
   display: flex;
   align-items: center;
