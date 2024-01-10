@@ -239,7 +239,7 @@ header .navbar ul li a:hover {
 
 /* tools start */
 
-.tools .box-container .box h3 {
+.tools .box h3 {
   display: flex;
   font-size: 2rem;
   color: #fff;
@@ -249,24 +249,19 @@ header .navbar ul li a:hover {
   flex-wrap: wrap;
 }
 .tools .box-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;  
   flex-wrap: wrap;
+  justify-content: center;
   padding: 2rem 0;
-  align-content: center;
-  flex-direction: initial;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
-.tools .box-container .box {
-  display: flex;
-  height: 100%;
-  width: 30%;
-  flex-wrap: wrap;
+.tools .box {
+  width: 100%;
   flex-direction: row;
   border-radius: 2rem;
   margin: 2rem;
-  overflow: hidden;
   padding: 5px;
   border: 0.4rem solid rgb(169, 244, 20);
   position: relative;
@@ -283,12 +278,9 @@ header .navbar ul li a:hover {
 /* Project starts */
 
 .projects .box-container {
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
   padding: 2rem 0;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 /* Float four columns side by side */
@@ -668,5 +660,12 @@ footer p {
     width: 100%;
     display: block;
     margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tools .box {
+    width: 30%; 
+    margin: 1rem; 
   }
 }
