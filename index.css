@@ -87,13 +87,22 @@ header {
   left: 0;
   z-index: 1000;
   height: 100%;
-  width: 30rem;
+  width: 35rem;
   background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column;
   text-align: center;
+}
+
+.overlay-header {
+  background: rgba(26, 26, 26, 0.9); /* Adjust the background color and transparency as needed */
+  position: fixed;
+  width: 35rem; /* Adjust the width if needed */
+  height: 100%;
+  z-index: 1; /* Ensure it's above the modal */
+  overflow-y: hidden;
 }
 
 header .container img {
@@ -286,7 +295,7 @@ header .navbar ul li a:hover {
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 40%;
+  width: 30%;
   padding: 0 10px;
   padding-left: 10px;
   padding-top: 20px;
@@ -368,23 +377,19 @@ header .navbar ul li a:hover {
 
 /* Style the counter cards */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: normal;
-  border-radius: 2%;
 }
 
 .card div {
   text-align: center;
   justify-content: center;
-}
 
+}
 
 /* Modal for work/project image */
 
 .myImg {
-  border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -413,7 +418,7 @@ header .navbar ul li a:hover {
   margin: auto;
   display: block;
   width: 100%;
-  max-width: 950px;
+  max-width: 1200px;
   padding-left:10px;
   padding-right: 10px;
   padding-top: 1.5rem;
@@ -573,12 +578,17 @@ iframe {
   overflow: hidden;
   padding: 16px;
 }
+footer {
+  max-width: 100%;
+}
+
 footer h6 {
   font-size: 2rem;
 }
 footer p {
   font-size: 1.5rem;
 }
+
 
 /* media queries  */
 

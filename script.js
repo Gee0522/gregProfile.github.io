@@ -30,6 +30,22 @@ $(document).ready(function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the modal image element
+  var modalImageContent = document.getElementsByClassName(
+    "modal-content-image"
+  );
+
+  // Get the header element
+  var header = document.getElementById("header");
+
+  // Add a click event listener to the modal image
+  modalImageContent.addEventListener("click", function () {
+    // Toggle the 'overlay-header' class on the header
+    header.classList.toggle("overlay-header");
+  });
+});
+
 // collapsible
 var coll = document.getElementsByClassName("collapsible");
 var con = document.getElementById("content");

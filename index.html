@@ -28,7 +28,7 @@
 
   <body>
     <!-- Header section start -->
-    <header>
+    <header id="header" class="overlay-header">
       <div class="container">
         <img src="./img/profile.jpg" />
         <h3 class="name">Greg Espellogo</h3>
@@ -197,9 +197,10 @@
 
     <!-- Project start  -->
     <section class="projects" id="projects">
-      <h1 class="heading">Sample <span>projcets</span></h1>
+      <h1 class="heading">Works | <span>projcets</span></h1>
       <div class="box-container">
         <div class="row">
+          <!-- nextjs ecommerce ui/ux -->
           <div class="column">
             <div class="card">
               <div>
@@ -213,34 +214,35 @@
                     height: 100%;
                     max-height: 300px;
                   "
-                  src="img/Store-nextjs.png"
+                  src="img\store-nextjs.png"
                 />
                 <!-- The Modal image content-->
                 <div id="imageModal" class="modalImg">
-                  <span class="closeImage" id="closeImage">&times;</span>
+                  <span class="closeImage" id="closeImage" title="close"
+                    >&times;</span
+                  >
                   <img class="modal-content-image" id="img01" />
                   <div id="caption" class="caption"></div>
                 </div>
                 <!-- modal image end -->
               </div>
               <button type="button" class="collapsible">
-                <p>
-                  Description
-                  <i class="fa-solid fa-arrows-up-down"></i>
-                </p>
+                <p>Next-JS ecommerce (UI/UX)</p>
               </button>
               <!-- card content start -->
               <div class="content">
-                <h2>Front-End</h2>
+                <h2>Description</h2>
                 <p>
-                  This is an ecommerce application using Nextjs13 Front-End
-                  application.
+                  Elevate your online shopping experience with this cutting-edge
+                  e-commerce application built on the Next.js 13 Front-End
+                  platform.
                 </p>
 
                 <h2>Tech Stack 🚀</h2>
                 <p>
-                  Next.js 13, Tailwind CSS, Shadcn (Reusable component),
-                  NextAuth (Google & GitHub) and credentials.
+                  The dynamic Tech Stack includes Next.js 13, Tailwind CSS,
+                  Shadcn (Reusable component), NextAuth (Google & GitHub) for
+                  seamless authentication, and credentials management.
                 </p>
                 <p>
                   GitHub-Repo:
@@ -260,6 +262,7 @@
               <!-- card content end -->
             </div>
           </div>
+          <!-- nextjs ecommerce admin API -->
           <div class="column">
             <div class="card">
               <div>
@@ -277,32 +280,31 @@
                 />
                 <!-- The Modal image content-->
                 <div id="imageModal2" class="modalImg">
-                  <span class="closeImage" id="closeImage2">&times;</span>
+                  <span class="closeImage" id="closeImage2" title="close"
+                    >&times;</span
+                  >
                   <img class="modal-content-image" id="img02" />
                   <div id="caption2" class="caption"></div>
                 </div>
                 <!-- modal image end -->
               </div>
               <button type="button" class="collapsible">
-                <p>
-                  Description
-                  <i class="fa-solid fa-arrows-up-down"></i>
-                </p>
+                <p>Next-JS ecommerce (API)</p>
               </button>
               <!-- card content start -->
               <div class="content">
-                <h2>Back-End (API)</h2>
+                <h2>Description</h2>
                 <p>
-                  This is an ecommerce application using Nextjs13
-                  Admin-dashboard application.
+                  Utilizing the robust capabilities of Next.js 13, this
+                  e-commerce application integrates an advanced Admin-dashboard.
                 </p>
 
                 <h2>Tech Stack 🚀</h2>
                 <p>
-                  Next.js 13 App Router, Tailwind CSS, Shadcn (Reusable
-                  component), Stripe, MySQL + Prisma + PlanetScale for database,
-                  clerk authentication, React, Next-cloudinary for image
-                  storage.
+                  The comprehensive tech stack includes Next.js 13 App Router,
+                  Tailwind CSS, Shadcn (Reusable component), Stripe, MySQL +
+                  Prisma + PlanetScale for database, clerk authentication,
+                  React, and Next-Cloudinary for efficient image storage.
                 </p>
                 <p>
                   GitHub-Repo:
@@ -314,6 +316,70 @@
                   Video presentation:
                   <a
                     href="https://drive.google.com/file/d/1wiOblx9-6B4Ow1EyVsxT9RswD7-X5Fsy/view?usp=sharing"
+                  >
+                    E-commerce Admin-dashboard
+                  </a>
+                </p>
+              </div>
+              <!-- card content end -->
+            </div>
+          </div>
+          <!-- 3D-AI customizer -->
+          <div class="column">
+            <div class="card">
+              <div>
+                <img
+                  class="myImg"
+                  id="myImg3"
+                  alt="AI-3D Customizer"
+                  style="
+                    width: 100%;
+                    max-width: 500px;
+                    height: 100%;
+                    max-height: 300px;
+                  "
+                  src="img\3D-AI-threeJs.png"
+                />
+                <!-- The Modal image content-->
+                <div id="imageModal3" class="modalImg">
+                  <span class="closeImage" id="closeImage3" title="close"
+                    >&times;</span
+                  >
+                  <img class="modal-content-image" id="img03" />
+                  <div id="caption3" class="caption"></div>
+                </div>
+                <!-- modal image end -->
+              </div>
+              <button type="button" class="collapsible">
+                <p>AI-3D Customizer</p>
+              </button>
+              <!-- card content start -->
+              <div class="content">
+                <h2>Description</h2>
+                <p>
+                  Developed using React and Vite, this application harnesses the
+                  power of AI to create a cutting-edge 3D customizer, offering a
+                  seamless and immersive user experience.
+                </p>
+
+                <h2>Tech Stack 🚀</h2>
+                <p>
+                  <strong>Front-End: </strong> React, ThreeJS, react-three/fiber
+                  and tailwind css.
+                  <br />
+                  <strong>Back-End: </strong> openai, nodejs, cors
+                </p>
+
+                <p>
+                  GitHub-Repo:
+                  <a href="https://github.com/Gee0522/ThreeJs-3D-AI">
+                    3D-AI Customizer
+                  </a>
+                </p>
+                <p>
+                  Video presentation:
+                  <a
+                    href="https://drive.google.com/file/d/1oIL85XNB47vuFR_vmYMgG3nwX_CNNS75/view?usp=sharing"
                   >
                     E-commerce Admin-dashboard
                   </a>
