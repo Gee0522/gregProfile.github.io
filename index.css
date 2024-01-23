@@ -97,11 +97,11 @@ header {
 }
 
 .overlay-header {
-  background: rgba(26, 26, 26, 0.9); /* Adjust the background color and transparency as needed */
+  background: rgba(26, 26, 26, 0.9); 
   position: fixed;
-  width: 35rem; /* Adjust the width if needed */
+  width: 35rem; 
   height: 100%;
-  z-index: 1; /* Ensure it's above the modal */
+  z-index: 1;
   overflow-y: hidden;
 }
 
@@ -295,7 +295,7 @@ header .navbar ul li a:hover {
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 30%;
+  width: 32.5%;
   padding: 0 10px;
   padding-left: 10px;
   padding-top: 20px;
@@ -319,9 +319,8 @@ header .navbar ul li a:hover {
 
 .collapsible {
   background-color: #0059b3;
+  border: 3px solid #1BAF57;
   color: white;
-  cursor: pointer;
-  border: none;
   outline: none;
   font-size: 20px;
   display: flex;
@@ -330,13 +329,16 @@ header .navbar ul li a:hover {
   text-align: center;
 }
 
-.collapsible p {
-  padding-top: 10px;
+
+.collapsible:hover {
+  background-color: #E9E9EE;
+  font: bold;
+  color: black;
+  border: 3px solid rgb(53, 36, 222);
 }
 
-.active,
-.collapsible:hover {
-  background-color: #0073e6;
+.collapsible p {
+  padding-top: 10px;
 }
 
 .content {
@@ -358,7 +360,6 @@ header .navbar ul li a:hover {
 .content p::after {
   content: "";
   display: block;
-  border-bottom: 1px solid #000;
   margin-top: 10px;
 }
 
@@ -377,26 +378,30 @@ header .navbar ul li a:hover {
 
 /* Style the counter cards */
 .card {
-  padding: 16px;
+  padding: 10px;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 3%;
+  border: .5rem solid rgb(211, 213, 14);
 }
 
 .card div {
   text-align: center;
   justify-content: center;
-
 }
 
 /* Modal for work/project image */
 
 .myImg {
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .myImg:hover {
-  opacity: 0.7;
+  opacity: 0.6;
+  border: 3.5px solid rgb(10, 9, 6);
 }
+
 
 /* The Modal image (background) */
 .modalImg {
