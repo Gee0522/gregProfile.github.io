@@ -1,3 +1,4 @@
+// side bar navigation
 $(document).ready(function () {
   $("#menu").click(function () {
     $(this).toggleClass("fa-times");
@@ -30,50 +31,20 @@ $(document).ready(function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the modal image element
-  var modalImageContent = document.getElementsByClassName(
-    "modal-content-image"
-  );
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Get the modal image element
+//   var modalImageContent = document.getElementsByClassName(
+//     "modal-content-image"
+//   );
 
-  // Get the header element
-  var header = document.getElementById("header");
+//   // Get the header element
+//   var header = document.getElementById("header");
 
-  // Add a click event listener to the modal image
-  modalImageContent.addEventListener("click", function () {
-    // Toggle the 'overlay-header' class on the header
-    header.classList.toggle("overlay-header");
-  });
-});
-
-// collapsible
-var coll = document.getElementsByClassName("collapsible");
-var con = document.getElementById("content");
-
-for (var i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    var con = this.nextElementSibling;
-    if (con.style.display === "block") {
-      con.style.display = "none";
-    } else {
-      con.style.display = "block";
-    }
-  });
-}
-// Close collapsible content when clicking outside
-document.addEventListener("click", function (event) {
-  var isCollapsibleContent = event.target.matches(
-    ".collapsible, .collapsible *"
-  );
-  if (!isCollapsibleContent) {
-    for (var i = 0; i < coll.length; i++) {
-      var con = coll[i].nextElementSibling;
-      con.style.display = "none";
-      coll[i].classList.remove("active");
-    }
-  }
-});
+//   // Add a click event listener to the modal image
+//   modalImageContent.addEventListener("click", function () {
+//     header.classList.toggle("overlay-header");
+//   });
+// });
 
 // function for image modal
 function setupImageModal(imgId, modalId, modalImgId, captionId, closeId) {
@@ -101,11 +72,35 @@ function setupImageModal(imgId, modalId, modalImgId, captionId, closeId) {
   };
 }
 
-// Usage for image1
+// // Usage for image1
 setupImageModal("myImg", "imageModal", "img01", "caption", "closeImage");
 
-// Usage for image2
+// // Usage for image2
 setupImageModal("myImg2", "imageModal2", "img02", "caption2", "closeImage2");
 
 // Usage for image3
 setupImageModal("myImg3", "imageModal3", "img03", "caption3", "closeImage3");
+
+// Usage for image4
+// setupImageModal("myImg4", "imageModal4", "img04", "caption4", "closeImage4");
+
+// type writing effects
+var i = 0;
+var txt = "I'm Greg Espellogo";
+var speed = 180;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("text").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  } else {
+    i = 0;
+    document.getElementById("text").innerHTML = "";
+    setTimeout(typeWriter, speed);
+  }
+}
+// Call the typeWriter function when the document is ready
+document.addEventListener("DOMContentLoaded", function () {
+  typeWriter();
+});

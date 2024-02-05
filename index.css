@@ -38,7 +38,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  background: #111;
+  background-image: linear-gradient(to right, rgba(35, 40, 122), rgba(33, 35, 71));
   overflow-x: hidden;
   padding-left: 35rem;
 }
@@ -56,6 +56,7 @@ section {
   margin-top: 1rem;
   font-size: 2rem;
   border-radius: 5rem;
+  border: 1px solid rgba(90, 160, 173);
 }
 
 .btn i {
@@ -66,6 +67,7 @@ section {
 
 .btn:hover {
   background: var(--yellow);
+  color: rgb(10, 10, 10)
 }
 
 .heading {
@@ -97,7 +99,7 @@ header {
 }
 
 .overlay-header {
-  background: rgba(26, 26, 26, 0.9); 
+  background-image: linear-gradient(to right, rgba(35, 40, 122), rgba(33, 35, 71));
   position: fixed;
   width: 35rem; 
   height: 100%;
@@ -141,14 +143,16 @@ header .navbar ul li a {
   display: block;
   padding: 10px 50px;
   margin: 1.5rem 0;
-  background: #333;
+  background-image: linear-gradient(to right, rgba(49, 54, 143), rgba(34, 39, 128));
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.85rem;
   border-radius: 5rem;
+  border: 0.5px solid rgba(90, 160, 173);
 }
 
 header .navbar ul li a:hover {
   background: var(--yellow);
+  color: rgb(10, 10, 10)
 }
 
 #menu {
@@ -177,12 +181,9 @@ header .navbar ul li a:hover {
 
 .home h1 {
   font-size: 5rem;
-  color: #fff;
-}
-
-.home h1 span {
   color: var(--yellow);
 }
+
 
 .home p {
   font-size: 2rem;
@@ -206,6 +207,8 @@ header .navbar ul li a:hover {
   padding-left: 5rem;
   justify-content: center;
 }
+
+
 
 .about .row .info h3 {
   font-size: 2rem;
@@ -246,11 +249,46 @@ header .navbar ul li a:hover {
 
 /* about end */
 
+/* social account links */
+.sticky-sidenav {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  background-color: rgb(50, 98, 168);
+  padding: 10px;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 3%;
+  width: 40px; 
+  transition: width 0.3s ease-in-out; 
+}
+
+.sticky-sidenav:hover {
+  width: 60px; 
+}
+
+.sticky-sidenav a {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.sticky-sidenav i {
+  transition: color 0.3s ease-in-out;
+}
+
+.sticky-sidenav a:hover i {
+  color: #ff9900; /* Change the color on hover */
+  
+}
+
 /* tools start */
 
 .tools .box h3 {
   display: flex;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #fff;
   padding-top: 1.5rem;
   text-align: center;
@@ -274,7 +312,9 @@ header .navbar ul li a:hover {
   padding: 5px;
   border: 0.4rem solid rgb(169, 244, 20);
   position: relative;
+  align-items: center;
 }
+
 
 .tools .box-container .box img {
   height: 100%;
@@ -282,12 +322,13 @@ header .navbar ul li a:hover {
   object-fit: cover;
   flex-wrap: wrap;
 }
+
 /* tools end */
 
 /* Project starts */
 
 .projects .box-container {
-  padding: 2rem 0;
+  /* padding: rem 0; */
   padding-left: 3rem;
   padding-right: 3rem;
 }
@@ -295,10 +336,10 @@ header .navbar ul li a:hover {
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 32.5%;
-  padding: 0 10px;
-  padding-left: 10px;
+  width: 30%;
   padding-top: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -317,73 +358,108 @@ header .navbar ul li a:hover {
   clear: both;
 }
 
-.collapsible {
-  background-color: #0059b3;
-  border: 3px solid #1BAF57;
-  color: white;
-  outline: none;
-  font-size: 20px;
+.projects .box-container .card .button:hover {
+  background: var(--yellow);
+  color: rgb(10, 10, 10);
+  border: 1.5px solid rgb(38, 38, 191);
+}
+/* view button */
+.projects .box-container .card .button {
+  height: 4rem;
+  width: 120px;
+  padding: 5px;
+  background: #3a3a94;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.9rem;
+  border-radius: 25px;
+  border: 2px solid rgba(90, 160, 173);
+  cursor: pointer;
+  margin: 5px;
+  transition: all 0.5s;
+}
+
+.projects .box-container .card .button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.projects .box-container .card .button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 10px;
+  transition: right 0.3s ease;
+}
+
+.projects .box-container .card .button:hover span {
+  padding-right: 25px;
+}
+
+.projects .box-container .card .button:hover span:after {
+  opacity: 1;
+  top: 0;
+}
+
+.modal-body {
+  font-size: 17px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-
-.collapsible:hover {
-  background-color: #E9E9EE;
-  font: bold;
-  color: black;
-  border: 3px solid rgb(53, 36, 222);
-}
-
-.collapsible p {
-  padding-top: 10px;
-}
-
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  width: 100%;
-}
-
-.content p {
-  padding-top: 5px;
-  font-size: 15px;
-  color: black;
   align-items: left;
+}
+
+.content-modal{
+  justify-content: center;
+  display: flex;
+}
+
+.modal-body p {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  align-items: center;
   text-align: left;
 }
 
-.content p::after {
-  content: "";
-  display: block;
-  margin-top: 10px;
-}
-
-.content h2 {
-  padding-top: 20px;
-  margin-right: 10px;
+.modal-body h2 {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  align-items: center;
   text-align: left;
-  font-weight: bold;
 }
 
-.description {
-  font-size: 20px;
-  text: center;
+.content-modal div a {
+  padding: 5rem;
+  align-items: center;
+}
+
+
+
+.modal-body .fab,
+.modal-body .fa-solid {
+    font-size: 32px; 
+    padding: 7px;
+}
+
+.modal-body .fab:hover,
+.modal-body .fa-solid:hover {
+  color: #ff9900;
 }
 
 
 /* Style the counter cards */
 .card {
+  width: 100%;
+  max-width: 400px;
   padding: 10px;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   border-radius: 3%;
-  border: .5rem solid rgb(211, 213, 14);
+  border: .5rem solid gray;
 }
 
 .card div {
@@ -395,11 +471,13 @@ header .navbar ul li a:hover {
 
 .myImg {
   cursor: pointer;
+  border-radius: 3%;
+  border: 1.5px solid rgb(10, 9, 6);
 }
 
 .myImg:hover {
   opacity: 0.6;
-  border: 3.5px solid rgb(10, 9, 6);
+  border: 2px solid rgb(23, 52, 251);
 }
 
 
@@ -634,15 +712,16 @@ footer p {
     font-size: 50%;
   }
   .tools .box-container .box {
-    width: 50%;
+    width: 40%;
   }
-  .projects .box-container .box {
+  .projects .box-container .column {
     width: 50%;
     height: auto;
   }
+
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
   header {
     width: 100vw;
   }
@@ -656,7 +735,10 @@ footer p {
   }
 
   .tools .box-container .box {
-    width: 50%;
+    width: 70%;
+  }
+  .projects .box-container .column {
+    width: 100%
   }
 
   .contact .row form {
