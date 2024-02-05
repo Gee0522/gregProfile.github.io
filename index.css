@@ -246,43 +246,7 @@ header .navbar ul li a:hover {
   font-size: 2rem;
   color: #fff;
 }
-
 /* about end */
-
-/* social account links */
-.sticky-sidenav {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  background-color: rgb(50, 98, 168);
-  padding: 10px;
-  margin-right: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  border-radius: 3%;
-  width: 40px; 
-  transition: width 0.3s ease-in-out; 
-}
-
-.sticky-sidenav:hover {
-  width: 60px; 
-}
-
-.sticky-sidenav a {
-  color: white;
-  text-decoration: none;
-  font-size: 25px;
-}
-
-.sticky-sidenav i {
-  transition: color 0.3s ease-in-out;
-}
-
-.sticky-sidenav a:hover i {
-  color: #ff9900; /* Change the color on hover */
-  
-}
 
 /* tools start */
 
@@ -422,16 +386,15 @@ header .navbar ul li a:hover {
   text-align: left;
 }
 
-.modal-body h2 {
+.modal-body h1 {
   padding: 10px;
-  border-bottom: 1px solid black;
-  align-items: center;
+  border-bottom: 1px solid #000;
+  text-font: bold;
   text-align: left;
 }
 
 .content-modal div a {
-  padding: 5rem;
-  align-items: center;
+  padding: 2.5rem;
 }
 
 
@@ -439,7 +402,7 @@ header .navbar ul li a:hover {
 .modal-body .fab,
 .modal-body .fa-solid {
     font-size: 32px; 
-    padding: 7px;
+    padding: 4px;
 }
 
 .modal-body .fab:hover,
@@ -683,6 +646,7 @@ footer p {
   .home {
     padding: 1rem 4rem;
   }
+  
 }
 
 @media (max-width: 991px) {

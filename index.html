@@ -63,23 +63,6 @@
     </header>
     <!-- Header ends -->
 
-    <!-- social media nav links -->
-
-    <!-- Sticky Side Nav -->
-    <div class="sticky-sidenav">
-      <a href="https://www.facebook.com/greg.espellogo" title="facebook"
-        ><i class="fab fa-facebook"></i
-      ></a>
-      <a
-        href="https://www.linkedin.com/in/greg-erwin-espellogo-19981b1a0/"
-        title="linkedin"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <a href="https://gee0522.github.io/gregProfile.github.io/" title="github"
-        ><i class="fab fa-github"></i
-      ></a>
-    </div>
-
     <div id="menu" class="fa fa-bars"></div>
 
     <!-- home section starts  -->
@@ -223,6 +206,94 @@
       <h1 class="heading">Works | <span>projcets</span></h1>
       <div class="box-container">
         <div class="row">
+
+          <!-- React music player -->
+          <div class="column">
+            <div class="card">
+              <div>
+                <img
+                  class="myImg"
+                  id="myImg4"
+                  alt="React music-player"
+                  style="
+                    width: 100%;
+                    max-width: 500px;
+                    height: 100%;
+                    max-height: 300px;
+                  "
+                  src="img/React-music-player.png"
+                />
+                <!-- The Modal image content-->
+                <div id="imageModal4" class="modalImg">
+                  <span class="closeImage" id="closeImage4" title="close"
+                    >&times;</span
+                  >
+                  <img class="modal-content-image" id="img04" />
+                  <div id="caption4" class="caption"></div>
+                </div>
+                <!-- modal image content end -->
+              </div>
+              <br />
+              <h1>React music-player</h1>
+              <button
+                type="button"
+                id="details"
+                class="button"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal4"
+              >
+                <span>view</span>
+              </button>
+
+              <!-- modal description content -->
+              <div class="modal fade" id="myModal4">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h1 class="modal-title"><strong>Description</strong></h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                      ></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <p>
+                        Introducing a cutting-edge music player crafted with the perfect harmony of React, Vite, Rapid API, and the sleek styling of Tailwind CSS. Immerse yourself in an unparalleled musical experience with this responsive and feature-rich application.
+                      </p>
+                      <br />
+                      <h1><strong>Tech Stack</strong> 🚀</h1>
+                      <p>
+                        <strong>Front-End: </strong> React, Vite,
+                        redux/toolkit and tailwind css.
+                        <br />
+                        <strong>Back-End: </strong> Rapid API, Geo API
+                      </p>
+
+                      <div class="content-modal">
+                        <div>
+                          <a href="https://github.com/Gee0522/React-music-player">
+                            <i title="github" class="fab fa-github"></i>
+                          </a>
+                          <a
+                            href="https://drive.google.com/file/d/1oP5CGHOK3lLnFaQfaqTcqbsYH2O6PC8R/view?usp=sharing"
+                          >
+                            <i title="video demo" class="fa-solid fa-video"></i>
+                          </a>
+                          <a href="https://music-player-react-vite.netlify.app">
+                            <i title="live" class="fa-solid fa-globe"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           
           <!-- 3D-AI customizer -->
           <div class="column">
@@ -285,7 +356,7 @@
                         experience.
                       </p>
                       <br />
-                      <h2><strong>Tech Stack</strong> 🚀</h2>
+                      <h1><strong>Tech Stack</strong> 🚀</h1>
                       <p>
                         <strong>Front-End: </strong> React, ThreeJS,
                         react-three/fiber and tailwind css.
@@ -302,7 +373,7 @@
                           <a
                             href="https://drive.google.com/file/d/1oIL85XNB47vuFR_vmYMgG3nwX_CNNS75/view?usp=sharing"
                           >
-                            <i title="video" class="fa-solid fa-video"></i>
+                            <i title="video demo" class="fa-solid fa-video"></i>
                           </a>
                         </div>
                       </div>
@@ -320,7 +391,7 @@
                 <img
                   class="myImg"
                   id="myImg2"
-                  alt="Store"
+                  alt="Admin-dashboard"
                   style="
                     width: 100%;
                     max-width: 500px;
@@ -371,7 +442,7 @@
                         e-commerce application integrates an advanced Admin-dashboard.
                       </p>
                       <br />
-                      <h2><strong>Tech Stack</strong> 🚀</h2>
+                      <h1><strong>Tech Stack</strong> 🚀</h1>
                       <p>
                         The comprehensive tech stack includes Next.js 13 App Router,
                         Tailwind CSS, Shadcn (Reusable component), Stripe, MySQL +
@@ -387,7 +458,7 @@
                           <a
                             href="https://drive.google.com/file/d/1wiOblx9-6B4Ow1EyVsxT9RswD7-X5Fsy/view?usp=sharing"
                           >
-                            <i title="video" class="fa-solid fa-video"></i>
+                            <i title="video demo" class="fa-solid fa-video"></i>
                           </a>
                         </div>
                       </div>
@@ -458,7 +529,7 @@
                         platform.
                       </p>
                       <br />
-                      <h2><strong>Tech Stack</strong> 🚀</h2>
+                      <h1><strong>Tech Stack</strong> 🚀</h1>
                       <p>
                         The dynamic Tech Stack includes Next.js 13, Tailwind CSS,
                         Shadcn (Reusable component), NextAuth (Google & GitHub) for
@@ -473,7 +544,7 @@
                           <a
                             href="https://drive.google.com/file/d/1dveM93vEOG3dBivkhnYFJ0MResJBfUvn/view?usp=sharing"
                           >
-                            <i title="video" class="fa-solid fa-video"></i>
+                            <i title="video demo" class="fa-solid fa-video"></i>
                           </a>
                         </div>
                       </div>

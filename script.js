@@ -82,7 +82,7 @@ setupImageModal("myImg2", "imageModal2", "img02", "caption2", "closeImage2");
 setupImageModal("myImg3", "imageModal3", "img03", "caption3", "closeImage3");
 
 // Usage for image4
-// setupImageModal("myImg4", "imageModal4", "img04", "caption4", "closeImage4");
+setupImageModal("myImg4", "imageModal4", "img04", "caption4", "closeImage4");
 
 // type writing effects
 var i = 0;
