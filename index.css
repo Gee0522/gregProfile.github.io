@@ -9,7 +9,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
   outline: none;
   border: none;
   transition: all 0.2s linear;
@@ -38,9 +37,23 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  background-image: linear-gradient(to right, rgba(35, 40, 122), rgba(33, 35, 71));
+  position: relative;
   overflow-x: hidden;
   padding-left: 35rem;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20220509/pngtree-vector-background-in-the-concept-of-technology-image_1344201.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(100%);
 }
 
 section {
@@ -50,13 +63,13 @@ section {
 
 .btn {
   padding: 0.7rem 3rem;
-  background: #333;
+  background-image: linear-gradient(to right, rgba(64, 83, 134), rgba(10, 29, 121));
   color: #fff;
   cursor: pointer;
   margin-top: 1rem;
   font-size: 2rem;
   border-radius: 5rem;
-  border: 1px solid rgba(90, 160, 173);
+  border: 2px solid rgba(90, 160, 173);
 }
 
 .btn i {
@@ -87,19 +100,22 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1;
   height: 100%;
   width: 35rem;
-  background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column;
   text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
 
 .overlay-header {
-  background-image: linear-gradient(to right, rgba(35, 40, 122), rgba(33, 35, 71));
   position: fixed;
   width: 35rem; 
   height: 100%;
@@ -141,17 +157,19 @@ header .navbar ul {
 
 header .navbar ul li a {
   display: block;
-  padding: 10px 50px;
+  padding: 8px 35px;
   margin: 1.5rem 0;
-  background-image: linear-gradient(to right, rgba(49, 54, 143), rgba(34, 39, 128));
+  background-image: linear-gradient(to right, rgba(64, 83, 134), rgba(10, 29, 121));
   color: #fff;
   font-size: 1.85rem;
-  border-radius: 5rem;
-  border: 0.5px solid rgba(90, 160, 173);
+  border-radius: 25px;
+  tex-decoration: none;
+  border: 2px solid white;
 }
 
 header .navbar ul li a:hover {
   background: var(--yellow);
+  border: 2px solid rgb(7, 44, 177);
   color: rgb(10, 10, 10)
 }
 
@@ -208,8 +226,6 @@ header .navbar ul li a:hover {
   justify-content: center;
 }
 
-
-
 .about .row .info h3 {
   font-size: 2rem;
   color: var(--yellow);
@@ -259,6 +275,7 @@ header .navbar ul li a:hover {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .tools .box-container {
   display: flex;  
   flex-wrap: wrap;
@@ -274,15 +291,18 @@ header .navbar ul li a:hover {
   border-radius: 2rem;
   margin: 2rem;
   padding: 5px;
-  border: 0.4rem solid rgb(169, 244, 20);
+  border: 0.4rem solid rgb(61, 203, 216);
   position: relative;
   align-items: center;
-}
-
+  color: #E6E6E6;
+  
+} 
 
 .tools .box-container .box img {
   height: 100%;
   width: 100%;
+  max-width: 180px;
+  max-height: 180px;
   object-fit: cover;
   flex-wrap: wrap;
 }
@@ -292,7 +312,6 @@ header .navbar ul li a:hover {
 /* Project starts */
 
 .projects .box-container {
-  /* padding: rem 0; */
   padding-left: 3rem;
   padding-right: 3rem;
 }
@@ -304,7 +323,9 @@ header .navbar ul li a:hover {
   padding-top: 20px;
   overflow: hidden;
   text-overflow: ellipsis; 
+  padding: 12px;
 }
+
 
 /* Remove extra left and right margins, due to padding */
 .row {
@@ -331,10 +352,8 @@ header .navbar ul li a:hover {
 .projects .box-container .card .button {
   height: 4rem;
   width: 120px;
-  padding: 5px;
   background: #3a3a94;
   color: #fff;
-  cursor: pointer;
   font-size: 1.9rem;
   border-radius: 25px;
   border: 2px solid rgba(90, 160, 173);
@@ -372,29 +391,37 @@ header .navbar ul li a:hover {
   display: flex;
   flex-direction: column;
   align-items: left;
+  color: #000000;
+}
+
+.modal-title {
+  color: #000000;
+  font-size: 20px;
 }
 
 .content-modal{
   justify-content: center;
   display: flex;
+  border: none;
+  height: 1px;
+  background-color: #AAABA4;
+  margin: 40px 0;
 }
 
 .modal-body p {
-  padding: 10px;
-  border-bottom: 1px solid black;
-  align-items: center;
+  padding: 5px;
   text-align: left;
 }
 
 .modal-body h1 {
-  padding: 10px;
-  border-bottom: 1px solid #000;
-  text-font: bold;
+  padding: 5px;
   text-align: left;
+  color: #000000;
+  font-size: 19px;
 }
 
 .content-modal div a {
-  padding: 2.5rem;
+  padding: 2rem;
 }
 
 
@@ -403,6 +430,7 @@ header .navbar ul li a:hover {
 .modal-body .fa-solid {
     font-size: 32px; 
     padding: 4px;
+    padding-top: 10px;
 }
 
 .modal-body .fab:hover,
@@ -411,7 +439,7 @@ header .navbar ul li a:hover {
 }
 
 
-/* Style the counter cards */
+/* counter cards */
 .card {
   width: 100%;
   max-width: 400px;
@@ -422,7 +450,10 @@ header .navbar ul li a:hover {
   display: flex;
   flex-wrap: wrap;
   border-radius: 3%;
-  border: .5rem solid gray;
+  border: .5rem solid #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #E6E6E6;
+  box-shadow: 0 0 8px 8px rgba(46, 206, 218);  
 }
 
 .card div {
@@ -435,12 +466,12 @@ header .navbar ul li a:hover {
 .myImg {
   cursor: pointer;
   border-radius: 3%;
-  border: 1.5px solid rgb(10, 9, 6);
+  border: 2px solid rgb(46, 206, 218);
 }
 
 .myImg:hover {
-  opacity: 0.6;
-  border: 2px solid rgb(23, 52, 251);
+  opacity: 0.8;
+  border: 2px solid rgb(253, 126, 19);
 }
 
 
@@ -593,6 +624,7 @@ header .navbar ul li a:hover {
 .contact .row .content .info h3 i {
   padding-right: 1rem;
   color: var(--yellow);
+  font-size: 30px;
 }
 
 .top {
@@ -676,10 +708,10 @@ footer p {
     font-size: 50%;
   }
   .tools .box-container .box {
-    width: 40%;
+    width: 50%;
   }
   .projects .box-container .column {
-    width: 50%;
+    width: 33.33%;
     height: auto;
   }
 
@@ -699,7 +731,7 @@ footer p {
   }
 
   .tools .box-container .box {
-    width: 70%;
+    width: 80%;
   }
   .projects .box-container .column {
     width: 100%
@@ -718,9 +750,7 @@ footer p {
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
+    width: 50%;
   }
 }
 

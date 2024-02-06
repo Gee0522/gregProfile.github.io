@@ -25,26 +25,11 @@ $(document).ready(function () {
       {
         scrollTop: $($(this).attr("href")).offset().top,
       },
-      300,
+      200,
       "linear"
     );
   });
 });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Get the modal image element
-//   var modalImageContent = document.getElementsByClassName(
-//     "modal-content-image"
-//   );
-
-//   // Get the header element
-//   var header = document.getElementById("header");
-
-//   // Add a click event listener to the modal image
-//   modalImageContent.addEventListener("click", function () {
-//     header.classList.toggle("overlay-header");
-//   });
-// });
 
 // function for image modal
 function setupImageModal(imgId, modalId, modalImgId, captionId, closeId) {
