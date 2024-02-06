@@ -68,24 +68,3 @@ setupImageModal("myImg3", "imageModal3", "img03", "caption3", "closeImage3");
 
 // Usage for image4
 setupImageModal("myImg4", "imageModal4", "img04", "caption4", "closeImage4");
-
-// type writing effects
-var i = 0;
-var txt = "I'm Greg Espellogo";
-var speed = 180;
-
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("text").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  } else {
-    i = 0;
-    document.getElementById("text").innerHTML = "";
-    setTimeout(typeWriter, speed);
-  }
-}
-// Call the typeWriter function when the document is ready
-document.addEventListener("DOMContentLoaded", function () {
-  typeWriter();
-});
