@@ -50,10 +50,10 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url("https://static.vecteezy.com/system/resources/previews/022/059/193/large_2x/programming-code-abstract-technology-background-of-software-developer-and-computer-script-generative-ai-photo.jpg");
+  background-image: url("https://wallpapers.com/images/hd/4k-tech-ulcajgzzc25jlrgi.jpg");
   background-size: cover;
   background-position: center;
-  filter: brightness(70%);
+  filter: brightness(80%);
 }
 
 section {
@@ -177,7 +177,7 @@ header .navbar ul li a:hover {
   position: fixed;
   top: 2rem;
   right: 3rem;
-  background: #333;
+  background: transparent;
   color: white;
   cursor: pointer;
   font-size: 2.5rem;
@@ -321,10 +321,10 @@ header .navbar ul li a:hover {
 .tools .box {
   width: 100%;
   flex-direction: row;
-  border-radius: 2rem;
+  border-radius: 5rem;
   margin: 2rem;
   padding: 5px;
-  border: 0.4rem solid rgb(61, 203, 216);
+  border: 0.5rem solid rgb(29, 221, 127);
   position: relative;
   align-items: center;
   color: #E6E6E6;
@@ -358,6 +358,7 @@ header .navbar ul li a:hover {
   overflow: hidden;
   text-overflow: ellipsis; 
   padding: 12px;
+  transition: transform 0.3s ease;
 }
 
 
@@ -619,7 +620,7 @@ header .navbar ul li a:hover {
   padding: 2rem;
   margin: 2rem;
   margin-bottom: 4rem;
-  background-color: rgba(73, 74, 72, 0.788);
+  background-color: rgb(118, 119, 123);
   border-radius: 20px;
 }
 
@@ -635,6 +636,11 @@ header .navbar ul li a:hover {
 
 .contact .row form .box::placeholder {
   text-transform: lowercase;
+  color: #D7D8DD;
+}
+
+.contact .row form h2 {
+  font: black;
 }
 
 .contact .row form .message {
