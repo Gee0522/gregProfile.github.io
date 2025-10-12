@@ -1,691 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
 
-    <!-- Sweet alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greg's Portfolio' - Software Engineer</title>
+    <link rel="stylesheet" href="index.css">
 
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+</head>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" type="text/css" href="index.css" />
-
-    <!-- Fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-  </head>
-
-  <body>
-    <!-- Header section start -->
-    <header id="header" class="overlay-header">
-      <div class="container">
-        <img src="./img/profile.jpg" />
-        <h3 class="name">Greg Espellogo</h3>
-        <p class="post">Software Engineer/Developer</p>
-      </div>
-
-      <nav class="navbar" id="navbar">
-        <ul>
-          <li>
-            <a href="#home"><i class="fa fa-home"></i> Home</a>
-          </li>
-          <li>
-            <a href="#about"><i class="fa fa-user"></i> About</a>
-          </li>
-          <li>
-            <a href="#tools"><i class="fa fa-code"></i> Tools</a>
-          </li>
-          <li>
-            <a href="#projects"><i class="fa fa-th"></i> Works</a>
-          </li>
-          <li>
-            <a href="#contact"><i class="fa fa-envelope"></i> Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Header ends -->
-
-    <div id="menu" class="fa fa-bars"></div>
-
-    <!-- home section starts  -->
-    <section class="home" id="home">
-      <h3>HI THERE !</h3>
-      <h1 id="text"><span>I'm </span>Greg</h1>
-      <p>
-        Passionate Software Engineer with a deep love for coding and a
-        relentless drive to solve problems. A creative thinker with a knack for
-        developing innovative solutions, I thrive on the challenges of creating
-        robust and efficient systems. With a strong foundation in computer
-        science and extensive experience in software development, I am dedicated
-        to crafting elegant and scalable solutions that meet both user and
-        business needs. My commitment to continuous learning and staying abreast
-        of emerging technologies reflects my enthusiasm for staying at the
-        forefront of the ever-evolving tech landscape. Excited to contribute my
-        skills and passion for programming to a dynamic team focused on pushing
-        the boundaries of what technology can achieve.
-      </p>
-      <a href="#about"
-        ><button class="btn">about me <i class="fas fa-container"></i></button
-      ></a>
-    </section>
-    <!-- home section ends -->
-
-    <!-- about section starts  -->
-    <section class="about" id="about">
-      <h1 class="heading"><span>About</span> me</h1>
-      <div class="row">
-        <div class="info">
-          <h3><span> Name : </span> Greg Erwin Espellogo</h3>
-          <h3><span> Location : </span> Fargo, North Dakota</h3>
-          <h3><span> Position : </span> Software Engineer</h3>
-          <h3><span> Language : </span> English, Filipino</h3>
-          <h3><span> University : </span> Our Lady of Fatima University</h3>
-          <h3>
-            <span> Degree : </span> Bachelor of Science in Computer Science
-          </h3>
-          <a href="./resume/Greg_CV.pdf"
-            ><button class="btn">
-              download CV <i class="fa fa-download"></i></button
-          ></a>
-        </div>
-
-        <div class="counter"></div>
-      </div>
-    </section>
-    <!-- about section ends -->
-
-    <!-- Tools start  -->
-    <section class="tools" id="tools">
-      <h1 class="heading">Tools<span> that I used</span></h1>
-      <div class="box-container">
-        <div id="div1" class="box row">
-          <h3>Front End</h3>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/html5.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/css3.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/bs.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/js.png"
-              class="img-fluid"
-            />
-          </div>
-        </div>
-        <div id="div2" class="box row">
-          <h3>MERN</h3>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/mongodb.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/ejs.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/react.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/nodejs.png"
-              class="img-fluid"
-            />
-          </div>
-        </div>
-        <div id="div3" class="box row">
-          <h3>Other Tools</h3>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/heroku.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/git.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/postman.png"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-5">
-            <img
-              src="https://teejaecalinao.github.io/charles-sample/images/sublime-text-3.png"
-              class="img-fluid"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Tools end -->
-
-    <!-- Project start  -->
-    <section class="projects" id="projects">
-      <h1 class="heading">Works | <span>projcets</span></h1>
-      <div class="box-container">
-        <div class="row">
-          <!-- React music player -->
-          <div class="column">
-            <div class="card">
-              <div>
-                <img
-                  class="myImg"
-                  id="myImg4"
-                  alt="React music-player"
-                  style="
-                    width: 100%;
-                    max-width: 500px;
-                    height: 100%;
-                    max-height: 300px;
-                  "
-                  src="img/React-music-player.png"
-                />
-                <!-- The Modal image content-->
-                <div id="imageModal4" class="modalImg">
-                  <span class="closeImage" id="closeImage4" title="close"
-                    >&times;</span
-                  >
-                  <img class="modal-content-image" id="img04" />
-                  <div id="caption4" class="caption"></div>
-                </div>
-                <!-- modal image content end -->
-              </div>
-              <br />
-              <h1>Music-player</h1>
-              <button
-                type="button"
-                id="details"
-                class="button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal4"
-              >
-                <span>Details</span>
-              </button>
-
-              <!-- modal description content -->
-              <div class="modal fade" id="myModal4">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                  <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h1 class="modal-title"><strong>Description</strong></h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                      ></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      <p>
-                        Introducing a cutting-edge music player crafted with the
-                        perfect harmony of React, Vite, Rapid API, and the sleek
-                        styling of Tailwind CSS. Immerse yourself in an
-                        unparalleled musical experience with this responsive and
-                        feature-rich application.
-                      </p>
-                      <br />
-                      <h1><strong>Tech Stack</strong> 🚀</h1>
-                      <p>
-                        <strong>Front-End: </strong> React, Vite, redux/toolkit
-                        and tailwind css.
-                        <br />
-                        <strong>Back-End: </strong> Rapid API, Geo API
-                      </p>
-
-                      <div class="content-modal">
-                        <div>
-                          <a
-                            href="https://github.com/Gee0522/React-music-player"
-                          >
-                            <i title="github" class="fab fa-github"></i>
-                          </a>
-                          <a
-                            href="https://drive.google.com/file/d/1oP5CGHOK3lLnFaQfaqTcqbsYH2O6PC8R/view?usp=sharing"
-                          >
-                            <i title="video demo" class="fa-solid fa-video"></i>
-                          </a>
-                          <a href="https://music-player-react-vite.netlify.app">
-                            <i title="live" class="fa-solid fa-globe"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><img src="img/ge-logo.png"></div>
+            <div class="burger" onclick="toggleMenu()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
-          </div>
-
-          <!-- 3D-AI customizer -->
-          <div class="column">
-            <div class="card">
-              <div>
-                <img
-                  class="myImg"
-                  id="myImg3"
-                  alt="AI-3D Customizer"
-                  style="
-                    width: 100%;
-                    max-width: 500px;
-                    height: 100%;
-                    max-height: 300px;
-                  "
-                  src="img\3D-AI-threeJs.png"
-                />
-                <!-- The Modal image content-->
-                <div id="imageModal3" class="modalImg">
-                  <span class="closeImage" id="closeImage3" title="close"
-                    >&times;</span
-                  >
-                  <img class="modal-content-image" id="img03" />
-                  <div id="caption3" class="caption"></div>
-                </div>
-                <!-- modal image content end -->
-              </div>
-              <br />
-              <h1>AI-3D Customizer</h1>
-              <button
-                type="button"
-                id="details"
-                class="button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-              >
-                <span>Details</span>
-              </button>
-
-              <!-- modal description content -->
-              <div class="modal fade" id="myModal">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                  <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h1 class="modal-title"><strong>Description</strong></h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                      ></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      <p>
-                        Developed using React and Vite, this application
-                        harnesses the power of AI to create a cutting-edge 3D
-                        customizer, offering a seamless and immersive user
-                        experience.
-                      </p>
-                      <br />
-                      <h1><strong>Tech Stack</strong> 🚀</h1>
-                      <p>
-                        <strong>Front-End: </strong> React, ThreeJS,
-                        react-three/fiber and tailwind css.
-                        <br />
-                        <strong>Back-End: </strong> openai, nodejs, cors,
-                        express.js
-                      </p>
-
-                      <div class="content-modal">
-                        <div>
-                          <a href="https://github.com/Gee0522/ThreeJs-3D-AI">
-                            <i title="github" class="fab fa-github"></i>
-                          </a>
-                          <a
-                            href="https://drive.google.com/file/d/1oIL85XNB47vuFR_vmYMgG3nwX_CNNS75/view?usp=sharing"
-                          >
-                            <i title="video demo" class="fa-solid fa-video"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- nextjs ecommerce admin API -->
-          <div class="column">
-            <div class="card">
-              <div>
-                <img
-                  class="myImg"
-                  id="myImg2"
-                  alt="Admin-dashboard"
-                  style="
-                    width: 100%;
-                    max-width: 500px;
-                    height: 100%;
-                    max-height: 300px;
-                  "
-                  src="img/Admin-nextjs.png"
-                />
-                <!-- The Modal image content-->
-                <div id="imageModal2" class="modalImg">
-                  <span class="closeImage" id="closeImage2" title="close"
-                    >&times;</span
-                  >
-                  <img class="modal-content-image" id="img02" />
-                  <div id="caption2" class="caption"></div>
-                </div>
-                <!-- modal image end -->
-              </div>
-              <br />
-              <h1>Ecommerce admin</h1>
-              <button
-                type="button"
-                id="details3"
-                class="button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal3"
-              >
-                <span>Details</span>
-              </button>
-              <!-- modal description content -->
-              <div class="modal fade" id="myModal3">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                  <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h1 class="modal-title"><strong>Description</strong></h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                      ></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      <p>
-                        Utilizing the robust capabilities of Next.js 13, this
-                        e-commerce application integrates an advanced
-                        Admin-dashboard.
-                      </p>
-                      <br />
-                      <h1><strong>Tech Stack</strong> 🚀</h1>
-                      <p>
-                        The comprehensive tech stack includes Next.js 13 App
-                        Router, Tailwind CSS, Shadcn (Reusable component),
-                        Stripe, MySQL + Prisma + PlanetScale for database, clerk
-                        authentication, React, and Next-Cloudinary for efficient
-                        image storage.
-                      </p>
-
-                      <div class="content-modal">
-                        <div>
-                          <a
-                            href="https://github.com/Gee0522/ecommerce-admin-nextjs"
-                          >
-                            <i title="github" class="fab fa-github"></i>
-                          </a>
-                          <a
-                            href="https://drive.google.com/file/d/1wiOblx9-6B4Ow1EyVsxT9RswD7-X5Fsy/view?usp=sharing"
-                          >
-                            <i title="video demo" class="fa-solid fa-video"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- card content end -->
-            </div>
-          </div>
-
-          <!-- nextjs ecommerce ui/ux -->
-          <div class="column">
-            <div class="card">
-              <div>
-                <img
-                  class="myImg"
-                  id="myImg"
-                  alt="Store"
-                  style="
-                    width: 100%;
-                    max-width: 500px;
-                    height: 100%;
-                    max-height: 300px;
-                  "
-                  src="img/Store-nextjs.png"
-                />
-                <!-- The Modal image content-->
-                <div id="imageModal" class="modalImg">
-                  <span class="closeImage" id="closeImage" title="close"
-                    >&times;</span
-                  >
-                  <img class="modal-content-image" id="img01" />
-                  <div id="caption" class="caption"></div>
-                </div>
-                <!-- modal image end -->
-              </div>
-              <br />
-              <h1>Ecommerce store</h1>
-              <button
-                type="button"
-                id="details2"
-                class="button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal2"
-              >
-                <span>Details</span>
-              </button>
-              <!-- modal description content -->
-              <div class="modal fade" id="myModal2">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                  <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h1 class="modal-title"><strong>Description</strong></h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                      ></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      <p>
-                        Elevate your online shopping experience with this
-                        cutting-edge e-commerce application built on the Next.js
-                        13 Front-End platform.
-                      </p>
-                      <br />
-                      <h1><strong>Tech Stack</strong> 🚀</h1>
-                      <p>
-                        The dynamic Tech Stack includes Next.js 13, Tailwind
-                        CSS, Shadcn (Reusable component), NextAuth (Google &
-                        GitHub) for seamless authentication, and credentials
-                        management.
-                      </p>
-
-                      <div class="content-modal">
-                        <div>
-                          <a
-                            href="https://github.com/Gee0522/ecommerce-store-nextjs"
-                          >
-                            <i title="github" class="fab fa-github"></i>
-                          </a>
-                          <a
-                            href="https://drive.google.com/file/d/1dveM93vEOG3dBivkhnYFJ0MResJBfUvn/view?usp=sharing"
-                          >
-                            <i title="video demo" class="fa-solid fa-video"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- card content end -->
-            </div>
-          </div>
+            <ul id="navMenu">
+                <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
         </div>
-      </div>
+    </nav>
+
+    <canvas id="starfield"></canvas>
+
+    <section id="hero">
+        <div class="hero-image-container">
+            <img src="img/IMG_1454 5r (2).jpg" alt="Profile" class="profile-image">
+        </div>
+        <div class="hero-content">
+            <h1>Greg Espellogo</h1>
+            <p class="subtitle">Full-Stack developer/Web designer</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+            <div class="social-links">
+                <a href="https://github.com/Gee0522" target="_blank" aria-label="GitHub">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
+                    target="_blank" aria-label="LinkedIn">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/greg.espellogo" target="_blank" aria-label="facebook">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                    </svg>
+                </a>
+                <a href="mailto:gregespellogo@gmail.com" aria-label="Email">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </section>
-    <!-- Project ends -->
 
-    <!-- contact section starts  -->
-    <section class="contact" id="contact">
-      <h1 class="heading"><span>Contact</span> me</h1>
-
-      <div class="row">
-        <div class="content">
-          <h3 class="title">Contact</h3>
-
-          <div class="info">
-            <h3>
-              <a href="https://mail.google.com/">
-                <i class="fa-solid fa-envelope"></i></a
-              >gregespellogo@gmail.com
-            </h3>
-            <h3><i class="fa-solid fa-mobile"></i> (701) 219-1115</h3>
-            <h3>
-              <a href="https://www.facebook.com/greg.espellogo">
-                <i class="fa-brands fa-facebook" aria-hidden="true"></i
-              ></a>
-              FaceBook
-            </h3>
-            <h3>
-              <a
-                href="https://www.linkedin.com/in/greg-erwin-espellogo-19981b1a0/"
-              >
-                <i class="fa-brands fa-linkedin"></i
-              ></a>
-              Linked-in
-            </h3>
-            <h3>
-              <a href="https://github.com/Gee0522/">
-                <i class="fa-brands fa-github"></i
-              ></a>
-              Github
-            </h3>
-          </div>
+    <section id="about">
+        <div class="container content-section">
+            <h2>About</h2>
+            <div class="about-content">
+                <p>
+                    Entry-level developer with hands-on experience in web development and a strong foundation built
+                    through bootcamp training and certifications. With a system development role in 2023, gaining
+                    practical exposure to coding, troubleshooting, and collaboration in a development environment. Eager
+                    to contribute technical skills to a forward-thinking company and continue growing as a developer.
+                </p>
+                <a href="resume/greg-resume.pdf" class="download-cv-btn" download="Greg_Espellogo_CV.pdf">
+                    <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download CV
+                </a>
+            </div>
         </div>
 
-        <form
-          action="https://formsubmit.co/9d6acb26c56168ffb118214563c17dcb"
-          method="POST"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="name.."
-            class="box"
-            id="name"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="email address.."
-            class="box"
-            id="email"
-            required
-          />
-          <input
-            type="text"
-            name="_subject"
-            placeholder="subject.."
-            class="box"
-            id="subject"
-          />
-          <textarea
-            name="message"
-            cols="30"
-            rows="10"
-            class="box message"
-            placeholder="message.."
-            id="message"
-          ></textarea>
-          <input type="hidden" name="_template" value="table" />
-          <button type="submit" class="btn btn-primary">
-            Send <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-
-        <div>
-          <iframe
-            width="100%"
-            height="300"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=North%20Dakota,%20Fargo+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-            ><a href="https://www.maps.ie/distance-area-calculator.html"
-              >measure area map</a
-            ></iframe
-          >
-        </div>
-      </div>
     </section>
-    <!-- contact section ends -->
 
-    <!-- Footer start -->
-    <footer class="mt-5 p-3 bg-dark text-light">
-      <h6 class="text-center">Greg Espellogo</h6>
-      <p class="text-center">&copy; All Rights Reserved 2024</p>
+    <section id="skills">
+        <div class="container content-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li>React & Next.js</li>
+                        <li>TypeScript</li>
+                        <li>Bootstrap</li>
+                        <li>HTML</li>
+                        <li>Tailwind CSS, CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>Node.js & Express</li>
+                        <li>Python & Django</li>
+                        <li>PostgreSQL & MongoDB, MSSQL, MySQL, SSMS</li>
+                        <li>PrismaDB, REST APIs</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>DevOps & Tools</h3>
+                    <ul class="skill-list">
+                        <li>AWS & Docker</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Git & GitHub</li>
+                        <li>Postman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container content-section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openModal('project1')">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A full-featured online marketplace with real-time inventory management and admin page, payment
+                        integration, and...</p>
+                    <div class="tech-tags">
+                        <span class="tag">Next.js 13</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">MySQL + Prisma + PlanetScale</span>
+                        <span class="tag">Stripe</span>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('project2')">
+                    <h3>3D Cuztomizer using AI</h3>
+                    <p>A full-stack web application that leverages AI to enable dynamic 3D product customization,
+                        providing users with an...</p>
+                    <div class="tech-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">ThreeJS, react-three/fiber</span>
+                        <span class="tag">tailwind css</span>
+                        <span class="tag">openai</span>
+                        <span class="tag">node.js</span>
+                        <span class="tag">cors</span>
+                        <span class="tag">express.js</span>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('project3')">
+                    <h3>React music player</h3>
+                    <p>Developed a full-stack music player application with a modern React/Vite front-end. The app
+                        leverages Redux Toolkit...</p>
+                    <div class="tech-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Vite</span>
+                        <span class="tag">redux/toolkit</span>
+                        <span class="tag">tailwind css</span>
+                        <span class="tag">Rapid API</span>
+                        <span class="tag">Geo API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3 id="modalTitle">Project Title</h3>
+                <p id="modalDescription">Project description goes here</p>
+            </div>
+            <div class="modal-links">
+                <a href="#" id="githubLink" target="_blank" class="modal-btn modal-btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    View Code
+                </a>
+                <a href="#" id="liveLink" target="_blank" class="modal-btn modal-btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Sample Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact">
+        <div class="container content-section">
+            <h2>Get In Touch</h2>
+            <form class="contact-form" action="https://formsubmit.co/9d6acb26c56168ffb118214563c17dcb" method="POST">
+                <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p class="copyright">© 2025 Greg Espellogo. All Rights Reserved.</p>
     </footer>
-    <!-- Footer End -->
 
-    <!-- jquery cdn link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
 
-    <!-- JavaScript local -->
-    <script src="script.js"></script>
-
-    <!-- JavaScript link-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
 </html>
