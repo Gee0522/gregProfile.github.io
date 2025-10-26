@@ -108,6 +108,12 @@ const projects = {
     github: "https://github.com/Gee0522/React-music-player",
     live: "https://drive.google.com/file/d/1oP5CGHOK3lLnFaQfaqTcqbsYH2O6PC8R/view?usp=sharing",
   },
+  project4: {
+    title: "Plant Shopping App",
+    description:
+      "Full-featured React e-commerce platform with shopping cart, built using Vite, Redux Toolkit, and modern CSS. Demonstrates advanced state management and responsive UI design.",
+    live: "https://gee0522.github.io/e-plantShopping/",
+  },
 };
 
 // Open modal
