@@ -248,6 +248,45 @@ document.querySelectorAll('.timeline-item, .project-card, .stat-item').forEach(e
   revealObserver.observe(el);
 });
 
+// ===== TYPEWRITER =====
+(function () {
+  const el = document.getElementById('typewriter');
+  if (!el) return;
+
+  const text = 'Greg Espellogo';
+  const TYPE_SPEED   = 90;   // ms per character typed
+  const DELETE_SPEED = 45;   // ms per character deleted
+  const PAUSE_FULL   = 2200; // ms pause when fully typed
+  const PAUSE_EMPTY  = 400;  // ms pause when fully deleted
+
+  let i = 0;
+  let deleting = false;
+
+  function tick() {
+    if (!deleting) {
+      el.textContent = text.slice(0, i + 1);
+      i++;
+      if (i === text.length) {
+        deleting = true;
+        setTimeout(tick, PAUSE_FULL);
+        return;
+      }
+      setTimeout(tick, TYPE_SPEED);
+    } else {
+      el.textContent = text.slice(0, i - 1);
+      i--;
+      if (i === 0) {
+        deleting = false;
+        setTimeout(tick, PAUSE_EMPTY);
+        return;
+      }
+      setTimeout(tick, DELETE_SPEED);
+    }
+  }
+
+  setTimeout(tick, 600); // slight initial delay after page load
+})();
+
 // ===== STARFIELD =====
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');

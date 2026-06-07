@@ -12,7 +12,10 @@
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo"><img src="img/ge-logo.png" alt="GE Logo"></div>
+            <div class="logo">
+                <img src="img/ge-logo-dark.png" alt="GE Logo" class="logo-dark">
+                <img src="img/ge-logo.png"      alt="GE Logo" class="logo-light">
+            </div>
             <div class="nav-right">
                 <ul id="navMenu">
                     <li><a href="#hero" onclick="closeMenu()">Home</a></li>
@@ -22,7 +25,7 @@
                     <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
                     <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
                 </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
                     <svg class="t-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     <svg class="t-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
                 </button>
@@ -45,7 +48,7 @@
         </div>
         <div class="hero-content">
             <p class="hero-greeting">Hello, I'm</p>
-            <h1>Greg Espellogo</h1>
+            <h1><span id="typewriter"></span><span class="type-cursor">|</span></h1>
             <p class="subtitle">Full-Stack Developer &amp; Shopify Specialist</p>
             <div class="hero-cta">
                 <a href="#contact" class="cta-button">Get In Touch</a>
@@ -64,6 +67,15 @@
                 <a href="mailto:gregespellogo@gmail.com" aria-label="Email">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                 </a>
+            </div>
+            <div class="availability-badge" aria-label="Open to work">
+                <div class="avail-pulse"></div>
+                <div class="avail-checks">
+                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Remote</span>
+                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Part-time</span>
+                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Freelance</span>
+                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Contract</span>
+                </div>
             </div>
         </div>
     </section>
@@ -270,7 +282,7 @@
                 <div class="timeline-item">
                     <div class="timeline-marker">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">2022 dec — March 2023 </div>
+                        <div class="timeline-date">2022 Dec — 2023 March</div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
@@ -421,7 +433,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <img src="img/ge-logo.png" alt="GE Logo" class="footer-logo">
+                <!-- <img src="img/ge-logo-dark.png" alt="GE Logo" class="footer-logo logo-dark">
+                <img src="img/ge-logo.png"      alt="GE Logo" class="footer-logo logo-light"> -->
                 <p>Building digital experiences<br>that make a difference.</p>
                 <div class="footer-social">
                     <a href="https://github.com/Gee0522" target="_blank" aria-label="GitHub">
@@ -459,7 +472,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Greg Espellogo. All Rights Reserved.</p>
+            <p>© 2026 Greg Espellogo. All Rights Reserved.</p>
             <p class="footer-made">Built with passion &amp; caffeine ☕</p>
         </div>
     </footer>
