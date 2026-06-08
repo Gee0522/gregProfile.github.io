@@ -243,10 +243,44 @@ const revealObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-document.querySelectorAll('.timeline-item, .project-card, .stat-item').forEach(el => {
+document.querySelectorAll('.timeline-item, .project-card:not(.project-extra), .stat-item').forEach(el => {
   el.classList.add('reveal');
   revealObserver.observe(el);
 });
+
+// ===== PROJECTS TOGGLE =====
+function toggleProjects() {
+  const extras = document.querySelectorAll('.project-extra');
+  const btn = document.getElementById('projectsToggle');
+  const isExpanded = btn.dataset.expanded === 'true';
+  const textEl = btn.querySelector('.toggle-text');
+  const icon = btn.querySelector('.toggle-icon');
+
+  if (isExpanded) {
+    extras.forEach(card => {
+      card.style.animation = 'fadeOut 0.3s ease forwards';
+      setTimeout(() => {
+        card.style.display = 'none';
+        card.style.animation = '';
+      }, 300);
+    });
+    btn.dataset.expanded = 'false';
+    textEl.textContent = 'Show All Projects';
+    icon.style.transform = 'rotate(0deg)';
+  } else {
+    extras.forEach(card => {
+      card.style.display = 'block';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          card.style.animation = 'fadeInUp 0.5s ease forwards';
+        });
+      });
+    });
+    btn.dataset.expanded = 'true';
+    textEl.textContent = 'Show Less';
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
 
 // ===== TYPEWRITER =====
 (function () {
