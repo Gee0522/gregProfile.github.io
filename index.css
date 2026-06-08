@@ -985,7 +985,7 @@ h1 {
 
 .timeline-company-name svg {
   flex-shrink: 0;
-  stroke: yellow;
+  stroke: var(--text-4);
   opacity: 0.85;
 }
 
