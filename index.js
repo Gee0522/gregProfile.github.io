@@ -175,25 +175,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ===== PROJECTS DATA =====
 const projects = {
+
   project1: {
+    title: 'Press-fittings online',
+    description: 'Developed a custom Shopify e-commerce store for an industrial fittings supplier using the Keystone Theme, Custom Liquid, and Shopify Storefront API. Built from scratch to deliver a fast, scalable, and user-friendly shopping experience, featuring advanced product filtering, custom product pages, responsive design, and seamless Shopify checkout integration. The solution was optimized for performance, maintainability, and efficient product discovery across a large catalog of industrial fittings.',
+    github: 'https://github.com/Gee0522/press-fitting',
+    live: 'https://pressfittingsonline.com/',
+  },
+  project2: {
+    title: 'Control Valves Online',
+    description: 'A supplier of Italian-made actuated control valves and industrial flow control solutions. Built to simplify the valve selection and purchasing process, the platform provides industrial buyers with an efficient way to browse, configure, and order high-quality products online.',
+    github: 'https://github.com/Gee0522/cvo',
+    live: 'https://bonomivalves.com/',
+  },
+  project3: {
     title: 'E-Commerce Platform',
     description: 'A full-featured online marketplace with real-time inventory management, an admin dashboard, payment integration via Stripe, and advanced product search capabilities. Built with Next.js 13 App Router and MySQL via Prisma.',
     github: 'https://github.com/Gee0522/ecommerce-admin-nextjs',
     live: 'https://drive.google.com/file/d/1wiOblx9-6B4Ow1EyVsxT9RswD7-X5Fsy/view?usp=sharing',
   },
-  project2: {
+  project5: {
     title: '3D Customizer using AI',
     description: 'A full-stack web application that leverages OpenAI to enable dynamic 3D product customization. Users can apply AI-generated textures and colors to 3D models in real time, delivering an immersive and intuitive design experience powered by Three.js.',
     github: 'https://github.com/Gee0522/ThreeJs-3D-AI',
     live: 'https://drive.google.com/file/d/1oIL85XNB47vuFR_vmYMgG3nwX_CNNS75/view?usp=sharing',
   },
-  project3: {
+  project6: {
     title: 'React Music Player',
     description: 'A full-stack music player built with React and Vite. Uses Redux Toolkit for robust state management, integrates Rapid API for music streaming data, and includes Geo API for location-based music discovery. Delivers a dynamic, responsive listening experience.',
     github: 'https://github.com/Gee0522/React-music-player',
     live: 'https://drive.google.com/file/d/1oP5CGHOK3lLnFaQfaqTcqbsYH2O6PC8R/view?usp=sharing',
   },
-  project4: {
+  project7: {
     title: 'Plant Shopping App',
     description: 'A full-featured React e-commerce platform with shopping cart functionality, built using Vite, Redux Toolkit, and modern CSS. Demonstrates advanced state management, dynamic product filtering, and a fully responsive UI design.',
     github: null,
@@ -243,43 +256,31 @@ const revealObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-document.querySelectorAll('.timeline-item, .project-card:not(.project-extra), .stat-item').forEach(el => {
+document.querySelectorAll('.timeline-item, .project-card, .stat-item').forEach(el => {
   el.classList.add('reveal');
   revealObserver.observe(el);
 });
 
-// ===== PROJECTS TOGGLE =====
-function toggleProjects() {
-  const extras = document.querySelectorAll('.project-extra');
-  const btn = document.getElementById('projectsToggle');
-  const isExpanded = btn.dataset.expanded === 'true';
-  const textEl = btn.querySelector('.toggle-text');
-  const icon = btn.querySelector('.toggle-icon');
+// ===== PERSONAL PROJECTS DROPDOWN =====
+function togglePersonalProjects() {
+  const grid = document.getElementById('personalGrid');
+  const header = document.querySelector('.personal-header');
+  const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
   if (isExpanded) {
-    extras.forEach(card => {
-      card.style.animation = 'fadeOut 0.3s ease forwards';
-      setTimeout(() => {
-        card.style.display = 'none';
-        card.style.animation = '';
-      }, 300);
+    // Pin to actual rendered height so transition animates the real distance
+    grid.style.maxHeight = grid.scrollHeight + 'px';
+    grid.style.marginTop = '0';
+    grid.offsetHeight; // force reflow
+    requestAnimationFrame(() => {
+      grid.style.maxHeight = '0';
     });
-    btn.dataset.expanded = 'false';
-    textEl.textContent = 'Show All Projects';
-    icon.style.transform = 'rotate(0deg)';
   } else {
-    extras.forEach(card => {
-      card.style.display = 'block';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          card.style.animation = 'fadeInUp 0.5s ease forwards';
-        });
-      });
-    });
-    btn.dataset.expanded = 'true';
-    textEl.textContent = 'Show Less';
-    icon.style.transform = 'rotate(180deg)';
+    grid.style.maxHeight = grid.scrollHeight + 'px';
+    grid.style.marginTop = '1.75rem';
   }
+
+  header.setAttribute('aria-expanded', String(!isExpanded));
 }
 
 // ===== TYPEWRITER =====

@@ -277,9 +277,11 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                             Self-Employed · Contract-Based
                         </span>
-                        <p>Designing and delivering full-stack web applications for clients across various industries. Specializing in React/Next.js frontends paired with Node.js/Express backends and scalable database architecture. Available for contract engagements — local and remote.</p>
+                        <p>Designing and delivering high-performance full-stack web applications and e-commerce solutions for clients across various industries. Specializing in Shopify development, custom theme development, and storefront customization using Liquid, React, Next.js, HTML, CSS, and Tailwind CSS to create modern, responsive, and conversion-focused user experiences.<br>Available for contract, freelance, and remote engagements.</p>
                         <div class="timeline-tags">
-                            <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>AWS</span><span>Docker</span>
+                            <span>React</span><span>Node.js</span><span>Express</span><span>Liquid</span><span>HTML</span><span>CSS</span><span>Tailwind CSS</span>
+                            <span>storefront API</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -300,9 +302,9 @@
 
                         <span class="timeline-company">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                            Development Role · On-Site
+                            Development Role · Hybrid Work Environment
                         </span>
-                        <p>Gained hands-on experience in the full software development lifecycle — contributing to coding, debugging, and cross-functional team collaboration. Built foundational expertise in web technologies, modern development workflows, and production-grade engineering practices.</p>
+                        <p>Worked as a C#/.NET Developer in a large enterprise organization with 1,000+ employees, developing and maintaining business-critical applications in a hybrid environment. Specialized in Entity Framework, SQL Server Stored Procedures, data modeling, database design, and reverse engineering existing systems. Collaborated with cross-functional teams to build scalable backend solutions, optimize database performance, and deliver reliable software using modern development and Agile practices.</p>
                         <div class="timeline-tags">
                             <span>Web Development</span><span>Team Collaboration</span><span>Agile</span><span>Git</span>
                         </div>
@@ -315,79 +317,133 @@
     <!-- PROJECTS -->
     <section id="projects">
         <div class="container content-section">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" onclick="openModal('project1')">
-                    <div class="project-image">
-                        <img src="img/Store-nextjs.png" alt="E-Commerce Platform">
-                        <div class="project-overlay"><span>View Details →</span></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>Full-featured marketplace with real-time inventory management, admin dashboard, and payment integration.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Next.js 13</span>
-                            <span class="tag">Tailwind CSS</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Stripe</span>
+            <h2 class="section-title">Projects</h2>
+
+            <!-- Featured Work -->
+            <div class="projects-subsection">
+                <div class="subsection-header">
+                    <span class="subsection-badge badge-featured">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Featured Work
+                    </span>
+                    <p class="subsection-desc">Client &amp; professional projects</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="openModal('project1')">
+                        <div class="project-image">
+                            <img src="img/pressfitting.png" alt="Press-fittings Online">
+                            <div class="project-overlay"><span>View Details →</span></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Press-fittings Online</h3>
+                            <p>Custom Shopify store for an industrial fittings supplier, built with the Keystone Theme and Storefront API.</p>
+                            <div class="tech-tags">
+                                <span class="tag">Shopify</span>
+                                <span class="tag">Liquid</span>
+                                <span class="tag">Storefront API</span>
+                                <span class="tag">Tailwind CSS</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="project-card" onclick="openModal('project2')">
-                    <div class="project-image">
-                        <img src="img/3D-AI-threeJs.png" alt="3D AI Customizer">
-                        <div class="project-overlay"><span>View Details →</span></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>3D Customizer using AI</h3>
-                        <p>Full-stack app leveraging AI for dynamic 3D product customization with an immersive design experience.</p>
-                        <div class="tech-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Three.js</span>
-                            <span class="tag">OpenAI</span>
-                            <span class="tag">Express</span>
+                    <div class="project-card" onclick="openModal('project2')">
+                        <div class="project-image">
+                            <img src="img/bonomi.png" alt="Control Valves Online">
+                            <div class="project-overlay"><span>View Details →</span></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Control Valves Online</h3>
+                            <p>Shopify store for Italian-made actuated control valves and industrial flow control solutions.</p>
+                            <div class="tech-tags">
+                                <span class="tag">Shopify</span>
+                                <span class="tag">Liquid</span>
+                                <span class="tag">Tailwind CSS</span>
+                                <span class="tag">Responsive Design</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="project-card" onclick="openModal('project3')">
-                    <div class="project-image">
-                        <img src="img/React-music-player.png" alt="React Music Player">
-                        <div class="project-overlay"><span>View Details →</span></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>React Music Player</h3>
-                        <p>Full-stack music player with Redux Toolkit state management, Rapid API streaming, and geo-based features.</p>
-                        <div class="tech-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Redux Toolkit</span>
-                            <span class="tag">Rapid API</span>
-                            <span class="tag">Vite</span>
+                    <div class="project-card" onclick="openModal('project3')">
+                        <div class="project-image">
+                            <img src="img/Admin-nextjs.png" alt="E-Commerce Platform">
+                            <div class="project-overlay"><span>View Details →</span></div>
                         </div>
-                    </div>
-                </div>
-                <div class="project-card project-extra" style="display:none" onclick="openModal('project4')">
-                    <div class="project-image">
-                        <img src="img/javascript.png" alt="Plant Shopping App">
-                        <div class="project-overlay"><span>View Details →</span></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Plant Shopping App</h3>
-                        <p>React e-commerce platform with full shopping cart, Redux Toolkit state management, and responsive UI.</p>
-                        <div class="tech-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Redux</span>
-                            <span class="tag">Vite</span>
-                            <span class="tag">CSS Modules</span>
+                        <div class="project-info">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Full-featured marketplace with admin dashboard, real-time inventory management, and Stripe payment integration.</p>
+                            <div class="tech-tags">
+                                <span class="tag">Next.js 13</span>
+                                <span class="tag">Prisma</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">Stripe</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="projects-toggle">
-                <button class="show-more-btn" id="projectsToggle" onclick="toggleProjects()" data-expanded="false">
-                    <span class="toggle-text">Show More </span>
-                    <svg class="toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
+
+            <!-- Personal Projects -->
+            <div class="projects-subsection personal-section" id="personalSection">
+                <div class="subsection-header personal-header" onclick="togglePersonalProjects()" role="button" aria-expanded="false" aria-controls="personalGrid">
+                    <div class="subsection-header-left">
+                        <span class="subsection-badge badge-personal">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            Personal Projects
+                        </span>
+                        <p class="subsection-desc">Side projects &amp; learning experiments</p>
+                    </div>
+                    <svg class="personal-chevron" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="projects-grid" id="personalGrid">
+                    <div class="project-card" onclick="openModal('project5')">
+                        <div class="project-image">
+                            <img src="img/3D-AI-threeJs.png" alt="3D Customizer using AI">
+                            <div class="project-overlay"><span>View Details →</span></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>3D Customizer using AI</h3>
+                            <p>Real-time 3D product customization powered by OpenAI-generated textures and Three.js rendering.</p>
+                            <div class="tech-tags">
+                                <span class="tag">Three.js</span>
+                                <span class="tag">OpenAI</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Vite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" onclick="openModal('project6')">
+                        <div class="project-image">
+                            <img src="img/React-music-player.png" alt="React Music Player">
+                            <div class="project-overlay"><span>View Details →</span></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>React Music Player</h3>
+                            <p>Music streaming app with Redux state management, Rapid API integration, and geo-based song discovery.</p>
+                            <div class="tech-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Redux Toolkit</span>
+                                <span class="tag">Rapid API</span>
+                                <span class="tag">Vite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" onclick="openModal('project7')">
+                        <div class="project-image">
+                            <img src="img/eplantShopping.png" alt="Plant Shopping App">
+                            <div class="project-overlay"><span>View Details →</span></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Plant Shopping App</h3>
+                            <p>React e-commerce platform with full shopping cart, product filtering, and Redux Toolkit state management.</p>
+                            <div class="tech-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Redux</span>
+                                <span class="tag">CSS Modules</span>
+                                <span class="tag">Vite</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
