@@ -1195,7 +1195,7 @@ h1 {
 }
 
 .personal-header[aria-expanded="true"] .personal-chevron {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 
 .subsection-badge {
