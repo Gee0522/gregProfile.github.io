@@ -553,10 +553,10 @@ h1 {
 }
 
 .cta-outline {
+  color: var(--text-2);
   display: inline-block;
   padding: 0.85rem 2rem;
   background: transparent;
-  color: var(--accent);
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
@@ -817,6 +817,7 @@ h1 {
   align-items: center;
   gap: 0.6rem;
   cursor: default;
+  box-shadow: var(--shadow-sm);
   transition:
     transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.3s ease,
@@ -945,11 +946,13 @@ h1 {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
 }
 
 .timeline-content:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   border-color: rgba(102, 126, 234, 0.3);
 }
 
