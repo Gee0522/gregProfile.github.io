@@ -20,561 +20,502 @@
     <meta property="og:url" content="https://gee0522.github.io/gregProfile.github.io/">
     <meta property="og:image" content="https://gee0522.github.io/gregProfile.github.io/img/ge-logo-dark.png">
     <meta property="og:image:type" content="image/png">
-    
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://gee0522.github.io/gregProfile.github.io/">
 
+    <!-- Apply saved theme before paint to avoid a flash -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="img/ge-logo-dark.png" alt="GE Logo" class="logo-dark">
-                <img src="img/ge-logo.png"      alt="GE Logo" class="logo-light">
-            </div>
-            <div class="nav-right">
-                <ul id="navMenu">
-                    <li><a href="#hero" onclick="closeMenu()">Home</a></li>
-                    <li><a href="#about" onclick="closeMenu()">About</a></li>
-                    <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
-                    <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
-                    <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
-                    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-                    <svg class="t-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                    <svg class="t-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <div class="ambient" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+    </div>
+
+    <!-- NAV -->
+    <header class="site-header" id="siteHeader">
+        <nav class="nav-container" aria-label="Primary">
+            <a href="#hero" class="brand" aria-label="Greg Espellogo — home">
+                <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="gMark" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#c084fc"/>
+                            <stop offset="1" stop-color="#6366f1"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M31 13.5A13 13 0 1 0 33 23H21" fill="none" stroke="url(#gMark)" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+                <span class="brand-text">
+                    <span class="brand-name">Greg Espellogo</span>
+                    <span class="brand-sub">Full-Stack Shopify Developer</span>
+                </span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-indicator" aria-hidden="true"></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+                    <svg class="t-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="t-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                 </button>
-                <div class="burger" id="burgerBtn" onclick="toggleMenu()">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
+                <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <canvas id="starfield"></canvas>
-
-    <!-- HERO -->
-    <section id="hero">
-        <div class="hero-image-container">
-            <div class="avatar-ring"></div>
-            <img src="img/IMG_1454 5r (2).jpg" alt="Greg Espellogo" class="profile-image">
+    <!-- MOBILE MENU -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="drawer" id="mobileMenu" aria-label="Mobile menu" aria-hidden="true">
+        <div class="drawer-head">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M31 13.5A13 13 0 1 0 33 23H21" fill="none" stroke="url(#gMark)" stroke-width="5" stroke-linecap="round"/></svg>
+            <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
         </div>
-        <div class="hero-content">
-            <p class="hero-greeting">Hello, I'm</p>
-            <h1><span id="typewriter"></span><span class="type-cursor">|</span></h1>
-            <p class="subtitle">Full-Stack Developer &amp; Shopify Specialist</p>
-            <div class="hero-cta">
-                <a href="#contact" class="cta-button">Get In Touch</a>
-                <a href="#projects" class="cta-outline">View Work</a>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/Gee0522" target="_blank" aria-label="GitHub">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" aria-label="LinkedIn">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="https://www.facebook.com/greg.espellogo" target="_blank" aria-label="Facebook">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                </a>
-                <a href="mailto:gregespellogo@gmail.com" aria-label="Email">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
-                </a>
-            </div>
-            <div class="availability-badge" aria-label="Open to work">
-                <div class="avail-pulse"></div>
-                <div class="avail-checks">
-                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Remote</span>
-                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Part-time</span>
-                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Freelance</span>
-                    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Contract</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        <ul class="drawer-links">
+            <li><a href="#hero" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a></li>
+            <li><a href="#about" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>About</a></li>
+            <li><a href="#skills" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Skills</a></li>
+            <li><a href="#experience" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Experience</a></li>
+            <li><a href="#projects" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Projects</a></li>
+            <li><a href="#contact" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-block drawer-cta">Get In Touch
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+    </aside>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="container content-section">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a <strong>Full-Stack Developer</strong> currently focused on Shopify development and freelance web projects. I build end-to-end solutions — from custom Shopify themes and apps to full-stack applications using React, Next.js, and Node.js.</p>
-                    <p style="margin-top:1rem;">Open to <strong>contract-based</strong> and <strong>freelance</strong> engagements. Let's build something great together.</p>
-                    <a href="resume/greg-resume.pdf" class="download-cv-btn" download="Greg_Espellogo_CV.pdf">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        Download CV
-                    </a>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Projects Built</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label">Coffees Consumed</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-        <div class="container content-section">
-            <h2 class="section-title">Tech Stack</h2>
-            <div class="skills-filter">
-                <button class="filter-btn active" data-filter="frontend">Frontend</button>
-                <button class="filter-btn" data-filter="backend">Backend</button>
-                <button class="filter-btn" data-filter="databases">Databases</button>
-                <button class="filter-btn" data-filter="others">Others</button>
-            </div>
-            <div class="skills-grid" id="skillsGrid">
-                <!-- Frontend -->
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5"></div>
-                    <span>HTML5</span>
-                </div>
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3"></div>
-                    <span>CSS3</span>
-                </div>
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
-                    <span>JavaScript</span>
-                </div>
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/typescript/typescript-original.svg" alt="TypeScript"></div>
-                    <span>TypeScript</span>
-                </div>
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/react/react-original.svg" alt="React"></div>
-                    <span>React</span>
-                </div>
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nextjs/nextjs-original.svg" alt="Next.js" class="icon-invert-dark"></div>
-                    <span>Next.js</span>
-                </div>
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"></div>
-                    <span>Bootstrap</span>
-                </div>
-                <div class="skill-item" data-category="frontend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS"></div>
-                    <span>Tailwind CSS</span>
-                </div>
-                <!-- Backend -->
-                <div class="skill-item skill-hidden" data-category="backend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nodejs/nodejs-original.svg" alt="Node.js"></div>
-                    <span>Node.js</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="backend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/express/express-original-wordmark.svg" alt="Express" class="icon-invert-dark"></div>
-                    <span>Express.js</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="backend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt="Python"></div>
-                    <span>Python</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="backend">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/django/django-plain.svg" alt="Django" class="icon-invert-light"></div>
-                    <span>Django</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="backend">
-                    <div class="skill-icon skill-icon-custom">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><path d="M4 6h16M4 12h16M4 18h7"/><path d="M15 15l3 3 3-3"/><line x1="18" y1="18" x2="18" y2="12"/></svg>
-                    </div>
-                    <span>REST APIs</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="backend">
-                    <div class="skill-icon skill-icon-custom">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path fill="var(--accent)" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-.5-13v5.25l4.5 2.67-.75 1.23L10 13V7h1.5z"/></svg>
-                    </div>
-                    <span>Prisma ORM</span>
-                </div>
-                <!-- Databases -->
-                <div class="skill-item skill-hidden" data-category="databases">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
-                    <span>PostgreSQL</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="databases">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/mongodb/mongodb-original.svg" alt="MongoDB"></div>
-                    <span>MongoDB</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="databases">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/mysql/mysql-original.svg" alt="MySQL"></div>
-                    <span>MySQL</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="databases">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL" class="icon-invert-dark"></div>
-                    <span>MSSQL</span>
-                </div>
-                <!-- Others -->
-                <div class="skill-item skill-hidden" data-category="others">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS"></div>
-                    <span>AWS</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="others">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg" alt="Docker"></div>
-                    <span>Docker</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="others">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git"></div>
-                    <span>Git</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="others">
-                    <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub" class="icon-invert-dark"></div>
-                    <span>GitHub</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="others">
-                    <div class="skill-icon skill-icon-custom">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    </div>
-                    <span>Postman</span>
-                </div>
-                <div class="skill-item skill-hidden" data-category="others">
-                    <div class="skill-icon skill-icon-custom">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
-                    </div>
-                    <span>CI/CD</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-        <div class="container content-section">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2026 — Present</div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Shopify Full-Stack Developer</h3>
-                            <span class="timeline-badge timeline-badge-alt">Current</span>
-                        </div>
-                        <h4 class="timeline-company-name">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>
-                            Unlimited Controls
-                        </h4>
-                        <span class="timeline-company">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                            Shopify Development · Full-Time
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="eyebrow hero-anim" style="--d:0ms"><span class="pulse-dot"></span>Available for opportunities</span>
+                    <h1 class="hero-title">
+                        <span class="hero-hello hero-anim" style="--d:100ms">Hello, I'm</span>
+                        <span class="hero-name">
+                            <span class="word hero-anim" style="--d:220ms">Greg</span>
+                            <span class="word gradient-text glow-text hero-anim" style="--d:340ms">Espellogo</span>
                         </span>
-                        <p>Building and customizing Shopify storefronts, themes, and apps. Developing headless commerce solutions using Next.js and the Storefront API. Integrating third-party services, payment gateways, and crafting custom Liquid templates for seamless merchant experiences.</p>
-                        <div class="timeline-tags">
-                            <span>Shopify</span><span>Liquid</span><span>Next.js</span><span>Storefront API</span><span>React</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2026 — Present</div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Freelance Full-Stack Developer</h3>
-                            <span class="timeline-badge">Freelance</span>
-                        </div>
-                        <span class="timeline-company">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                            Self-Employed · Contract-Based
-                        </span>
-                        <p>Designing and delivering high-performance full-stack web applications and e-commerce solutions for clients across various industries. Specializing in Shopify development, custom theme development, and storefront customization using Liquid, React, Next.js, HTML, CSS, and Tailwind CSS to create modern, responsive, and conversion-focused user experiences.<br>Available for contract, freelance, and remote engagements.</p>
-                        <div class="timeline-tags">
-                            <span>React</span><span>Node.js</span><span>Express</span><span>Liquid</span><span>HTML</span><span>CSS</span><span>Tailwind CSS</span>
-                            <span>storefront API</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2022 Dec — 2023 March</div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>System Developer</h3>
-                            <span class="timeline-badge timeline-badge-muted">Past</span>
-                        </div>
-                        <h4 class="timeline-company-name">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
-                            Steel Asia Manufacturing Corp.
-                        </h4>
+                    </h1>
+                    <p class="hero-role hero-anim" style="--d:460ms">Full-Stack Developer &amp; Shopify Specialist</p>
+                    <p class="hero-desc hero-anim" style="--d:560ms">I build scalable Shopify stores, custom e-commerce experiences, and modern full-stack web applications that help businesses grow.</p>
 
-                        <span class="timeline-company">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                            Development Role · Hybrid Work Environment
+                    <div class="hero-cta hero-anim" style="--d:660ms">
+                        <a href="#projects" class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            View My Work
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#contact" class="btn btn-ghost">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                            Get In Touch
+                        </a>
+                    </div>
+
+                    <ul class="hero-stats hero-anim" style="--d:760ms">
+                        <li>
+                            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                            <span><strong>3+ Years</strong><small>Experience</small></span>
+                        </li>
+                        <li>
+                            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+                            <span><strong>10+</strong><small>Projects Built</small></span>
+                        </li>
+                        <li>
+                            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></span>
+                            <span><strong>Shopify</strong><small>Specialist</small></span>
+                        </li>
+                    </ul>
+
+                    <div class="social-links hero-anim" style="--d:860ms">
+                        <a href="https://github.com/Gee0522" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/greg.espellogo" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                        </a>
+                        <a href="mailto:gregespellogo@gmail.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="avatar">
+                        <span class="avatar-glow"></span>
+                        <span class="avatar-ring"></span>
+                        <img src="img/IMG_1454 5r (2).jpg" alt="Portrait of Greg Espellogo" class="avatar-img">
+                    </div>
+                    <div class="float-chip chip-shopify">
+                        <span class="chip-icon shopify-bag" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 7h14l-1.2 13.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 7z" fill="#95bf47"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="#5e8e3e" stroke-width="1.6"/><text x="12" y="17.6" text-anchor="middle" font-size="8.5" font-weight="800" fill="#fff" font-family="Arial, sans-serif">S</text></svg>
                         </span>
-                        <p>Worked as a C#/.NET Developer in a large enterprise organization with 1,000+ employees, developing and maintaining business-critical applications in a hybrid environment. Specialized in Entity Framework, SQL Server Stored Procedures, data modeling, database design, and reverse engineering existing systems. Collaborated with cross-functional teams to build scalable backend solutions, optimize database performance, and deliver reliable software using modern development and Agile practices.</p>
-                        <div class="timeline-tags">
-                            <span>Web Development</span><span>Team Collaboration</span><span>Agile</span><span>Git</span>
-                        </div>
+                        <span><strong>Shopify Specialist</strong><small>Themes · Apps · Storefronts</small></span>
+                    </div>
+                    <div class="float-chip chip-stack">
+                        <span class="chip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+                        <span><strong>Full-Stack</strong><small>React · Next.js · Node</small></span>
                     </div>
                 </div>
             </div>
+            <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="container about-grid">
+                <div class="about-text reveal">
+                    <span class="eyebrow">About Me</span>
+                    <h2 class="section-title">Turning Ideas<br>Into Powerful <span class="gradient-text nowrap">Online Stores</span></h2>
+                    <p class="lead">I'm a <strong>Full-Stack Developer</strong> focused on Shopify development and freelance web projects. I build end-to-end solutions — from custom Shopify themes and apps to full-stack applications using React, Next.js, and Node.js.</p>
+                    <ul class="checklist">
+                        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Shopify Theme &amp; App Development</li>
+                        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Modern Full-Stack Web Applications</li>
+                        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Performance &amp; Conversion Optimization</li>
+                    </ul>
+                    <div class="highlights">
+                        <div><strong class="gradient-text">Shopify</strong><span>Storefronts &amp; apps</span></div>
+                        <div><strong class="gradient-text">Full-Stack</strong><span>Frontend &amp; backend</span></div>
+                        <div><strong class="gradient-text">E-Commerce</strong><span>Business solutions</span></div>
+                    </div>
+                    <div class="btn-row">
+                        <a href="#experience" class="btn btn-primary">Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="resume/greg-resume.pdf" class="btn btn-ghost" download="Greg_Espellogo_CV.pdf">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-visual reveal" aria-hidden="true">
+                    <div class="platform"></div>
+                    <div class="laptop">
+                        <div class="laptop-screen">
+                            <div class="screen-bar"><i></i><i></i><i></i></div>
+                            <svg class="screen-bag" viewBox="0 0 24 24"><path d="M5 7h14l-1.2 13.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 7z" fill="#95bf47"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="#5e8e3e" stroke-width="1.6"/><text x="12" y="17.6" text-anchor="middle" font-size="8.5" font-weight="800" fill="#fff" font-family="Arial, sans-serif">S</text></svg>
+                            <div class="screen-lines"><i></i><i></i><i></i></div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <span class="orb orb-react"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/react/react-original.svg" alt=""></span>
+                    <span class="orb orb-next"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nextjs/nextjs-original.svg" alt="" class="invert-dark"></span>
+                    <span class="orb orb-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nodejs/nodejs-original.svg" alt=""></span>
+                    <span class="orb orb-code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+            <div class="container skills-grid-wrap">
+                <div class="skills-main">
+                    <div class="section-head reveal">
+                        <span class="eyebrow">My Skills</span>
+                        <h2 class="section-title">Technologies I Work With</h2>
+                        <p class="section-sub">A modern tech stack to build fast, scalable, and reliable solutions.</p>
+                    </div>
+
+                    <div class="tabs reveal" role="tablist" aria-label="Skill categories">
+                        <button class="tab active" role="tab" aria-selected="true" data-filter="frontend">Frontend</button>
+                        <button class="tab" role="tab" aria-selected="false" data-filter="backend">Backend</button>
+                        <button class="tab" role="tab" aria-selected="false" data-filter="databases">Databases</button>
+                        <button class="tab" role="tab" aria-selected="false" data-filter="others">Others</button>
+                    </div>
+
+                    <div class="skills-grid reveal" id="skillsGrid">
+                        <!-- Frontend -->
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt=""><span>HTML5</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt=""><span>CSS3</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt=""><span>JavaScript</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/typescript/typescript-original.svg" alt=""><span>TypeScript</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/react/react-original.svg" alt=""><span>React</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nextjs/nextjs-original.svg" alt="" class="invert-dark"><span>Next.js</span></div>
+                        <div class="skill" data-category="frontend"><svg class="skill-svg" viewBox="0 0 24 24"><path d="M5 7h14l-1.2 13.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 7z" fill="#95bf47"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="#5e8e3e" stroke-width="1.6"/><text x="12" y="17.6" text-anchor="middle" font-size="8.5" font-weight="800" fill="#fff" font-family="Arial, sans-serif">S</text></svg><span>Shopify / Liquid</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/tailwindcss/tailwindcss-plain.svg" alt=""><span>Tailwind CSS</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/bootstrap/bootstrap-original.svg" alt=""><span>Bootstrap</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/redux/redux-original.svg" alt=""><span>Redux</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/alpinejs/alpinejs-original.svg" alt=""><span>Alpine.js</span></div>
+                        <div class="skill" data-category="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/threejs/threejs-original.svg" alt="" class="invert-dark"><span>Three.js</span></div>
+                        <!-- Backend -->
+                        <div class="skill is-hidden" data-category="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nodejs/nodejs-original.svg" alt=""><span>Node.js</span></div>
+                        <div class="skill is-hidden" data-category="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/express/express-original.svg" alt="" class="invert-dark"><span>Express.js</span></div>
+                        <div class="skill is-hidden" data-category="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/csharp/csharp-original.svg" alt=""><span>C#</span></div>
+                        <div class="skill is-hidden" data-category="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/dot-net/dot-net-original.svg" alt=""><span>.NET</span></div>
+                        <div class="skill is-hidden" data-category="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt=""><span>Python</span></div>
+                        <div class="skill is-hidden" data-category="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/django/django-plain.svg" alt="" class="invert-dark"><span>Django</span></div>
+                        <div class="skill is-hidden" data-category="backend"><svg class="skill-svg skill-svg-line" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7M15 15l3 3 3-3M18 18v-6"/></svg><span>REST APIs</span></div>
+                        <div class="skill is-hidden" data-category="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/prisma/prisma-original.svg" alt="" class="invert-dark"><span>Prisma ORM</span></div>
+                        <!-- Databases -->
+                        <div class="skill is-hidden" data-category="databases"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/postgresql/postgresql-original.svg" alt=""><span>PostgreSQL</span></div>
+                        <div class="skill is-hidden" data-category="databases"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/mongodb/mongodb-original.svg" alt=""><span>MongoDB</span></div>
+                        <div class="skill is-hidden" data-category="databases"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/mysql/mysql-original.svg" alt=""><span>MySQL</span></div>
+                        <div class="skill is-hidden" data-category="databases"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="" class="invert-dark"><span>MSSQL</span></div>
+                        <!-- Others -->
+                        <div class="skill is-hidden" data-category="others"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" class="invert-dark"><span>AWS</span></div>
+                        <div class="skill is-hidden" data-category="others"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg" alt=""><span>Docker</span></div>
+                        <div class="skill is-hidden" data-category="others"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt=""><span>Git</span></div>
+                        <div class="skill is-hidden" data-category="others"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="" class="invert-dark"><span>GitHub</span></div>
+                        <div class="skill is-hidden" data-category="others"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postman/postman-original.svg" alt=""><span>Postman</span></div>
+                        <div class="skill is-hidden" data-category="others"><svg class="skill-svg skill-svg-line" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v3a3 3 0 0 0 3 3h6M18 15V9a3 3 0 0 0-3-3h-3"/><path d="m14 4-2 2 2 2"/></svg><span>CI/CD</span></div>
+                    </div>
+                </div>
+
+                <div class="stack-visual reveal" aria-hidden="true">
+                    <div class="stack">
+                        <span class="layer l1"></span>
+                        <span class="layer l2"></span>
+                        <span class="layer l3"></span>
+                        <span class="layer l4"></span>
+                        <span class="layer l5"></span>
+                    </div>
+                    <span class="cube c1"></span>
+                    <span class="cube c2"></span>
+                    <span class="cube c3"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">My Experience</span>
+                    <h2 class="section-title">Professional Journey</h2>
+                    <p class="section-sub">Building solutions and growing expertise in web development.</p>
+                </div>
+
+                <ol class="timeline">
+                    <li class="tl-item reveal is-open">
+                        <div class="tl-date">2026 — Present</div>
+                        <span class="tl-dot" aria-hidden="true"></span>
+                        <article class="tl-card">
+                            <button class="tl-head" aria-expanded="true" aria-controls="exp-1">
+                                <span>
+                                    <span class="tl-title"><span class="accent">Shopify</span> Full-Stack Developer</span>
+                                    <span class="tl-meta">Unlimited Controls · Full-Time</span>
+                                </span>
+                                <span class="tl-badge badge-current">Current</span>
+                                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+                            <div class="tl-body" id="exp-1">
+                                <div class="tl-body-inner">
+                                    <p>Building and customizing Shopify storefronts, themes, and apps. Developing headless commerce solutions using Next.js and the Storefront API. Integrating third-party services, payment gateways, and crafting custom Liquid templates for seamless merchant experiences.</p>
+                                    <div class="tags"><span>Shopify</span><span>Liquid</span><span>Next.js</span><span>Storefront API</span><span>React</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="tl-item reveal">
+                        <div class="tl-date">2026 — Present</div>
+                        <span class="tl-dot" aria-hidden="true"></span>
+                        <article class="tl-card">
+                            <button class="tl-head" aria-expanded="false" aria-controls="exp-2">
+                                <span>
+                                    <span class="tl-title">Freelance Full-Stack Developer</span>
+                                    <span class="tl-meta">Self-Employed · Contract-Based</span>
+                                </span>
+                                <span class="tl-badge">Freelance</span>
+                                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+                            <div class="tl-body" id="exp-2">
+                                <div class="tl-body-inner">
+                                    <p>Designing and delivering high-performance full-stack web applications and e-commerce solutions for clients across various industries. Specializing in Shopify development, custom theme development, and storefront customization using Liquid, React, Next.js, HTML, CSS, and Tailwind CSS to create modern, responsive, and conversion-focused user experiences. Available for contract, freelance, and remote engagements.</p>
+                                    <div class="tags"><span>React</span><span>Node.js</span><span>Express</span><span>Liquid</span><span>HTML</span><span>CSS</span><span>Tailwind CSS</span><span>Storefront API</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="tl-item reveal">
+                        <div class="tl-date">Dec 2022 — Mar 2023</div>
+                        <span class="tl-dot" aria-hidden="true"></span>
+                        <article class="tl-card">
+                            <button class="tl-head" aria-expanded="false" aria-controls="exp-3">
+                                <span>
+                                    <span class="tl-title">System Developer</span>
+                                    <span class="tl-meta">Steel Asia Manufacturing Corp. · Hybrid</span>
+                                </span>
+                                <span class="tl-badge badge-muted">Past</span>
+                                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+                            <div class="tl-body" id="exp-3">
+                                <div class="tl-body-inner">
+                                    <p>Worked as a C#/.NET Developer in a large enterprise organization with 1,000+ employees, developing and maintaining business-critical applications in a hybrid environment. Specialized in Entity Framework, SQL Server Stored Procedures, data modeling, database design, and reverse engineering existing systems. Collaborated with cross-functional teams to build scalable backend solutions, optimize database performance, and deliver reliable software using modern development and Agile practices.</p>
+                                    <div class="tags"><span>C#</span><span>.NET</span><span>Entity Framework</span><span>SQL Server</span><span>Agile</span><span>Git</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="projects-head">
+                    <div class="section-head reveal">
+                        <span class="eyebrow">My Projects</span>
+                        <h2 class="section-title">Featured Projects</h2>
+                        <p class="section-sub">Some of my recent work in Shopify and web development.</p>
+                    </div>
+                    <div class="tabs reveal" role="tablist" aria-label="Project categories" id="projectTabs">
+                        <button class="tab active" role="tab" aria-selected="true" data-filter="all">All</button>
+                        <button class="tab" role="tab" aria-selected="false" data-filter="shopify">Shopify</button>
+                        <button class="tab" role="tab" aria-selected="false" data-filter="webapp">Web Apps</button>
+                        <button class="tab" role="tab" aria-selected="false" data-filter="ecommerce">E-Commerce</button>
+                    </div>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Rendered from PROJECTS in index.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-card reveal">
+                    <div class="contact-info">
+                        <span class="eyebrow">Get In Touch</span>
+                        <h2 class="section-title">Let's Work Together</h2>
+                        <p class="lead">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+                        <ul class="contact-list">
+                            <li>
+                                <span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+                                <span><small>Email</small><a href="mailto:gregespellogo@gmail.com">gregespellogo@gmail.com</a></span>
+                            </li>
+                            <li>
+                                <span class="ci-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+                                <span><small>LinkedIn</small><a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener">Greg Espellogo</a></span>
+                            </li>
+                            <li>
+                                <span class="ci-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></span>
+                                <span><small>GitHub</small><a href="https://github.com/Gee0522" target="_blank" rel="noopener">github.com/Gee0522</a></span>
+                            </li>
+                            <li>
+                                <span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+                                <span><small>Availability</small>Remote · Freelance · Contract · Part-time</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/9d6acb26c56168ffb118214563c17dcb" method="POST" novalidate>
+                        <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://gee0522.github.io/gregProfile.github.io/#contact">
+                        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" autocomplete="name" required>
+                            </div>
+                            <div class="field">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or idea..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="sendBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            <span class="btn-label">Send Message</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="#hero" class="brand" aria-label="Back to top">
+                <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M31 13.5A13 13 0 1 0 33 23H21" fill="none" stroke="url(#gMark)" stroke-width="5" stroke-linecap="round"/></svg>
+                <span class="brand-text">
+                    <span class="brand-name">Greg Espellogo</span>
+                    <span class="brand-sub">Full-Stack Shopify Developer</span>
+                </span>
+            </a>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <a href="resume/greg-resume.pdf" download>Download CV</a>
+            </nav>
+            <p class="copyright">© 2026 Greg Espellogo. All rights reserved.</p>
         </div>
-    </section>
+    </footer>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <div class="container content-section">
-            <h2 class="section-title">Projects</h2>
-
-            <!-- Featured Work -->
-            <div class="projects-subsection">
-                <div class="subsection-header">
-                    <span class="subsection-badge badge-featured">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        Featured Work
-                    </span>
-                    <p class="subsection-desc">Client &amp; professional projects</p>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card" onclick="openModal('project1')">
-                        <div class="project-image">
-                            <img src="img/pressfitting.png" alt="Press-fittings Online">
-                            <div class="project-overlay"><span>View Details →</span></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Press-fittings Online</h3>
-                            <p>Custom Shopify store for an industrial fittings supplier, built with the Keystone Theme and Storefront API.</p>
-                            <div class="tech-tags">
-                                <span class="tag">Liquid</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">AJAX</span>
-                                <span class="tag">SEO</span>
-                                <span class="tag">HTML</span>
-                                <span class="tag">JavaScript</span>
-                                 <span class="tag">Tailwind CSS</span>
-                                <span class="tag">Alpine.js</span>
-                                <span class="tag">Storefront API</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card" onclick="openModal('project2')">
-                        <div class="project-image">
-                            <img src="img/bonomi.png" alt="Control Valves Online">
-                            <div class="project-overlay"><span>View Details →</span></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Control Valves Online</h3>
-                            <p>Shopify store for Italian-made actuated control valves and industrial flow control solutions.</p>
-                            <div class="tech-tags">
-                                <span class="tag">Liquid</span>
-                                <span class="tag">Tailwind CSS</span>
-                                <span class="tag">Responsive Design</span>
-                                <span class="tag">HTML</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card" onclick="openModal('project3')">
-                        <div class="project-image">
-                            <img src="img/Admin-nextjs.png" alt="E-Commerce Platform">
-                            <div class="project-overlay"><span>View Details →</span></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>E-Commerce Platform</h3>
-                            <p>Full-featured marketplace with admin dashboard, real-time inventory management, and Stripe payment integration.</p>
-                            <div class="tech-tags">
-                                <span class="tag">Next.js 13</span>
-                                <span class="tag">Prisma</span>
-                                <span class="tag">MySQL</span>
-                                <span class="tag">Stripe</span>
-                                <span class="tag">TypeScript</span>
-                                <span class="tag">Tailwind CSS</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- PROJECT MODAL -->
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-dialog">
+            <div class="modal-top">
+                <span class="modal-label">Project Details</span>
+                <div class="modal-nav">
+                    <button class="icon-btn" id="modalPrev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+                    <span class="modal-count" id="modalCount"></span>
+                    <button class="icon-btn" id="modalNext" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+                    <button class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
                 </div>
             </div>
-
-            <!-- Personal Projects -->
-            <div class="projects-subsection personal-section" id="personalSection">
-                <div class="subsection-header personal-header" onclick="togglePersonalProjects()" role="button" aria-expanded="false" aria-controls="personalGrid">
-                    <div class="subsection-header-left">
-                        <span class="subsection-badge badge-personal">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                            Personal Projects
-                        </span>
-                        <p class="subsection-desc">Side projects &amp; learning experiments</p>
-                    </div>
-                    <svg class="personal-chevron" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="projects-grid" id="personalGrid">
-                    <div class="project-card" onclick="openModal('project5')">
-                        <div class="project-image">
-                            <img src="img/3D-AI-threeJs.png" alt="3D Customizer using AI">
-                            <div class="project-overlay"><span>View Details →</span></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>3D Customizer using AI</h3>
-                            <p>Real-time 3D product customization powered by OpenAI-generated textures and Three.js rendering.</p>
-                            <div class="tech-tags">
-                                <span class="tag">Three.js</span>
-                                <span class="tag">OpenAI</span>
-                                <span class="tag">React</span>
-                                <span class="tag">Vite</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card" onclick="openModal('project6')">
-                        <div class="project-image">
-                            <img src="img/React-music-player.png" alt="React Music Player">
-                            <div class="project-overlay"><span>View Details →</span></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>React Music Player</h3>
-                            <p>Music streaming app with Redux state management, Rapid API integration, and geo-based song discovery.</p>
-                            <div class="tech-tags">
-                                <span class="tag">React</span>
-                                <span class="tag">Redux Toolkit</span>
-                                <span class="tag">Rapid API</span>
-                                <span class="tag">Vite</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card" onclick="openModal('project7')">
-                        <div class="project-image">
-                            <img src="img/eplantShopping.png" alt="Plant Shopping App">
-                            <div class="project-overlay"><span>View Details →</span></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Plant Shopping App</h3>
-                            <p>React e-commerce platform with full shopping cart, product filtering, and Redux Toolkit state management.</p>
-                            <div class="tech-tags">
-                                <span class="tag">React</span>
-                                <span class="tag">Redux</span>
-                                <span class="tag">CSS Modules</span>
-                                <span class="tag">Vite</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- MODAL -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()" aria-label="Close">&times;</button>
-            <div class="modal-header">
-                <h3 id="modalTitle"></h3>
-                <p id="modalDescription"></p>
-            </div>
-            <div class="modal-links">
-                <a href="#" id="githubLink" target="_blank" class="modal-btn modal-btn-primary">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    View Code
-                </a>
-                <a href="#" id="liveLink" target="_blank" class="modal-btn modal-btn-secondary">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Live Demo
-                </a>
+            <div class="modal-scroll">
+                <div class="modal-body" id="modalBody"></div>
             </div>
         </div>
     </div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="container content-section">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Have a project in mind or want to work together? I'd love to hear from you.</p>
-            <form class="contact-form" action="https://formsubmit.co/9d6acb26c56168ffb118214563c17dcb" method="POST">
-                <input type="hidden" name="_subject" value="New Portfolio Contact Message">
-                <input type="hidden" name="_captcha" value="true">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project or idea..." required></textarea>
-                </div>
-                <button type="submit">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    Send Message
-                </button>
-            </form>
-        </div>
-    </section>
+    <!-- TOAST -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="toast-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span class="toast-text"><strong id="toastTitle">Message Sent!</strong><small id="toastMsg">Thank you for reaching out.</small></span>
+        <button class="toast-close" id="toastClose" aria-label="Dismiss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <!-- <img src="img/ge-logo-dark.png" alt="GE Logo" class="footer-logo logo-dark">
-                <img src="img/ge-logo.png"      alt="GE Logo" class="footer-logo logo-light"> -->
-                <p>Building digital experiences<br>that make a difference.</p>
-                <div class="footer-social">
-                    <a href="https://github.com/Gee0522" target="_blank" aria-label="GitHub">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" aria-label="LinkedIn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/greg.espellogo" target="_blank" aria-label="Facebook">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                    </a>
-                    <a href="mailto:gregespellogo@gmail.com" aria-label="Email">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Navigate</h4>
-                    <a href="#hero">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://github.com/Gee0522" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank">LinkedIn</a>
-                    <a href="https://www.facebook.com/greg.espellogo" target="_blank">Facebook</a>
-                    <a href="mailto:gregespellogo@gmail.com">gregespellogo@gmail.com</a>
-                    <a href="resume/greg-resume.pdf" download>Download CV</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Greg Espellogo. All Rights Reserved.</p>
-            <p class="footer-made">Built with passion &amp; caffeine ☕</p>
-        </div>
-    </footer>
+    <!-- BACK TO TOP -->
+    <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        <span>Back to Top</span>
+    </a>
 
     <script src="index.js"></script>
 </body>
